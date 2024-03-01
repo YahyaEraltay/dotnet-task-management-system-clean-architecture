@@ -13,3 +13,4 @@ C:\Users\yahya.eraltay\source\v1\TaskManagementSystem\TaskManagementSystem.Infra
 C:\Users\yahya.eraltay\source\v1\TaskManagementSystem\TaskManagementSystem.Infrastructure\obj\Debug\net6.0\refint\TaskManagementSystem.Infrastructure.dll
 C:\Users\yahya.eraltay\source\v1\TaskManagementSystem\TaskManagementSystem.Infrastructure\obj\Debug\net6.0\TaskManagementSystem.Infrastructure.pdb
 C:\Users\yahya.eraltay\source\v1\TaskManagementSystem\TaskManagementSystem.Infrastructure\obj\Debug\net6.0\ref\TaskManagementSystem.Infrastructure.dll
+C:\Users\yahya.eraltay\source\v1\TaskManagementSystem\TaskManagementSystem.Infrastructure\obj\Debug\net6.0\TaskManagementSystem.Infrastructure.sourcelink.json

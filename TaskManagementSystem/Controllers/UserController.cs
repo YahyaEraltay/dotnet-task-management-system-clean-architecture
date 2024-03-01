@@ -72,7 +72,7 @@ namespace TaskManagementSystem.API.Controllers
 
             if (user == null)
             {
-                return Unauthorized(new { message = "Invalid username or password" });
+                return Unauthorized(new { message = "Invalid username" });
             }
 
             var token = _generateJwtToken.GenerateToken(user);

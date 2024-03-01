@@ -10,9 +10,9 @@ namespace TaskManagementSystem.Application.Services
 {
     public interface IDepartmentService
     {
-        Task<Department> GetDepartmentByIdAsync(int id);
-        Task<List<Department>> GetAllDepartmentAsync();
-        Task<Department> AddDepartmentAsync(DepartmentDTO departmentDto);
+        Task<DepartmentDTO> GetDepartmentByIdAsync(int id);
+        Task<List<DepartmentDTO>> GetAllDepartmentAsync();
+        Task<DepartmentDTO> AddDepartmentAsync(DepartmentDTO departmentDto);
         Task<Department> UpdateDepartmentAsync(DepartmentDTO departmentDto, int id);
         Task DeleteDepartmentAsync(int id);
     }

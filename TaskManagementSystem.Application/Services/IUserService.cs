@@ -10,10 +10,10 @@ namespace TaskManagementSystem.Application.Services
 {
     public interface IUserService
     {
-        Task<User> GetUserByIdAsync(int id);
-        Task<List<User>> GetAllUsersAsync();
-        Task<User> AddUserAsync(UserDTO userDto);
-        Task<User> UpdateUserAsync(UserDTO userDto, int id);
+        Task<UserDTO> GetUserByIdAsync(int id);
+        Task<List<UserDTO>> GetAllUsersAsync();
+        Task<UserDTO> AddUserAsync(UserDTO userDto);
+        Task<UserDTO> UpdateUserAsync(UserDTO userDto, int id);
         Task DeleteUserAsync(int id);
         Task<User> LoginUserAsync(string userName);
     }

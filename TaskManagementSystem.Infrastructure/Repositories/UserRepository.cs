@@ -23,13 +23,12 @@ namespace TaskManagementSystem.Infrastructure.Repositories
             var user = new User
             {
                 UserName = userDto.UserName,
-                DepartmentId = userDto.DepartmentId,
+                DepartmentId = userDto.DepartmentId, 
             };
             await _context.AddAsync(user);
             await _context.SaveChangesAsync();
             return user;
         }
-
         public async Task DeleteUserAsync(int id)
         {
             var x = await _context.Users.FindAsync(id);
@@ -46,7 +45,7 @@ namespace TaskManagementSystem.Infrastructure.Repositories
 
         public async Task<List<User>> GetAllUsersAsync()
         {
-            return await _context.Users.Include(x=>x.Department).ToListAsync();
+            return await _context.Users.ToListAsync();
         }
 
         public async Task<User> GetUserByIdAsync(int id)
@@ -67,9 +66,12 @@ namespace TaskManagementSystem.Infrastructure.Repositories
         public async Task<User> UpdateUserAsync(UserDTO userDto, int id)
         {
             var user = await _context.Users.FindAsync(id);
+            if (user == null)
+            {
+                throw new Exception("Id not found");
+            }
             user.UserName = userDto.UserName;
             user.DepartmentId = userDto.DepartmentId;
-            _context.Update(user);
             await _context.SaveChangesAsync();
             return user;
         }

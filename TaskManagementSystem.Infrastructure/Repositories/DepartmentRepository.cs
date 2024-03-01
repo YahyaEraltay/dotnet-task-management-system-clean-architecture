@@ -74,10 +74,5 @@ namespace TaskManagementSystem.Infrastructure.Repositories
             return department;
 
         }
-
-        public Task<Department> UpdateDepartmentAsync(DepartmentDTO departmentDto)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

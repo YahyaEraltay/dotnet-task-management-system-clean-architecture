@@ -18,30 +18,52 @@ namespace TaskManagementSystem.Application.Services
             _userRepository = userRepository;
         }
 
-        public async Task<User> AddUserAsync(UserDTO userDto)
+        public async Task<UserDTO> AddUserAsync(UserDTO userDto)
         {
-            return await _userRepository.AddUserAsync(userDto);
+            await _userRepository.AddUserAsync(userDto);
+            return userDto;
         }
 
         public async Task DeleteUserAsync(int id)
         {
             await _userRepository.DeleteUserAsync(id);
         }
-        public async Task<List<User>> GetAllUsersAsync()
+        public async Task<List<UserDTO>> GetAllUsersAsync()
         {
-            return await _userRepository.GetAllUsersAsync();
+            var users = await _userRepository.GetAllUsersAsync();
+            var response = new List<UserDTO>() { };
+            foreach (var user in users)
+            {
+                response.Add(new UserDTO()
+                {
+                    UserName = user.UserName,
+                    DepartmentId = user.DepartmentId,
+                });
+            }
+            return response;
         }
-        public async Task<User> GetUserByIdAsync(int id)
+        public async Task<UserDTO> GetUserByIdAsync(int id)
         {
-            return await _userRepository.GetUserByIdAsync(id);
+            var user = await _userRepository.GetUserByIdAsync(id);
+            var userDTO = new UserDTO
+            {
+                UserName = user.UserName,
+                DepartmentId = user.DepartmentId,
+            };
+            return userDTO;
         }
         public async Task<User> LoginUserAsync(string userName)
         {
             return await _userRepository.GetUserByNameAsync(userName);
         }
-        public async Task<User> UpdateUserAsync(UserDTO userDto, int id)
+        public async Task<UserDTO> UpdateUserAsync(UserDTO userDto, int id)
         {
-            return await _userRepository.UpdateUserAsync(userDto, id);
+            await _userRepository.UpdateUserAsync(userDto, id);
+            return new UserDTO
+            {
+                UserName = userDto.UserName,
+                DepartmentId = userDto.DepartmentId,
+            };
         }
     }
 }

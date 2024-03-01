@@ -74,3 +74,4 @@ C:\Users\yahya.eraltay\source\v1\TaskManagementSystem\TaskManagementSystem\bin\D
 C:\Users\yahya.eraltay\source\v1\TaskManagementSystem\TaskManagementSystem\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\yahya.eraltay\source\v1\TaskManagementSystem\TaskManagementSystem\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\yahya.eraltay\source\v1\TaskManagementSystem\TaskManagementSystem\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\yahya.eraltay\source\v1\TaskManagementSystem\TaskManagementSystem\obj\Debug\net6.0\TaskManagementSystem.API.sourcelink.json
