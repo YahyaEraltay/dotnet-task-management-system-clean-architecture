@@ -1,0 +1,17 @@
+C:\Users\yahya.eraltay\source\v1\TaskManagementSystem\TaskManagementSystem.Application\bin\Debug\net6.0\TaskManagementSystem.Application.deps.json
+C:\Users\yahya.eraltay\source\v1\TaskManagementSystem\TaskManagementSystem.Application\bin\Debug\net6.0\TaskManagementSystem.Application.dll
+C:\Users\yahya.eraltay\source\v1\TaskManagementSystem\TaskManagementSystem.Application\bin\Debug\net6.0\TaskManagementSystem.Application.pdb
+C:\Users\yahya.eraltay\source\v1\TaskManagementSystem\TaskManagementSystem.Application\bin\Debug\net6.0\TaskManagementSystem.Domain.dll
+C:\Users\yahya.eraltay\source\v1\TaskManagementSystem\TaskManagementSystem.Application\bin\Debug\net6.0\TaskManagementSystem.Infrastructure.dll
+C:\Users\yahya.eraltay\source\v1\TaskManagementSystem\TaskManagementSystem.Application\bin\Debug\net6.0\TaskManagementSystem.Infrastructure.pdb
+C:\Users\yahya.eraltay\source\v1\TaskManagementSystem\TaskManagementSystem.Application\bin\Debug\net6.0\TaskManagementSystem.Domain.pdb
+C:\Users\yahya.eraltay\source\v1\TaskManagementSystem\TaskManagementSystem.Application\obj\Debug\net6.0\TaskManagementSystem.Application.csproj.AssemblyReference.cache
+C:\Users\yahya.eraltay\source\v1\TaskManagementSystem\TaskManagementSystem.Application\obj\Debug\net6.0\TaskManagementSystem.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yahya.eraltay\source\v1\TaskManagementSystem\TaskManagementSystem.Application\obj\Debug\net6.0\TaskManagementSystem.Application.AssemblyInfoInputs.cache
+C:\Users\yahya.eraltay\source\v1\TaskManagementSystem\TaskManagementSystem.Application\obj\Debug\net6.0\TaskManagementSystem.Application.AssemblyInfo.cs
+C:\Users\yahya.eraltay\source\v1\TaskManagementSystem\TaskManagementSystem.Application\obj\Debug\net6.0\TaskManagementSystem.Application.csproj.CoreCompileInputs.cache
+C:\Users\yahya.eraltay\source\v1\TaskManagementSystem\TaskManagementSystem.Application\obj\Debug\net6.0\TaskMana.0F84D606.Up2Date
+C:\Users\yahya.eraltay\source\v1\TaskManagementSystem\TaskManagementSystem.Application\obj\Debug\net6.0\TaskManagementSystem.Application.dll
+C:\Users\yahya.eraltay\source\v1\TaskManagementSystem\TaskManagementSystem.Application\obj\Debug\net6.0\refint\TaskManagementSystem.Application.dll
+C:\Users\yahya.eraltay\source\v1\TaskManagementSystem\TaskManagementSystem.Application\obj\Debug\net6.0\TaskManagementSystem.Application.pdb
+C:\Users\yahya.eraltay\source\v1\TaskManagementSystem\TaskManagementSystem.Application\obj\Debug\net6.0\ref\TaskManagementSystem.Application.dll

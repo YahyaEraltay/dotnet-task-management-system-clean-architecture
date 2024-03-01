@@ -1,0 +1,212 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\yahya.eraltay\\source\\v1\\TaskManagementSystem\\TaskManagementSystem.Application\\TaskManagementSystem.Application.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\yahya.eraltay\\source\\v1\\TaskManagementSystem\\TaskManagementSystem.Application\\TaskManagementSystem.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\yahya.eraltay\\source\\v1\\TaskManagementSystem\\TaskManagementSystem.Application\\TaskManagementSystem.Application.csproj",
+        "projectName": "TaskManagementSystem.Application",
+        "projectPath": "C:\\Users\\yahya.eraltay\\source\\v1\\TaskManagementSystem\\TaskManagementSystem.Application\\TaskManagementSystem.Application.csproj",
+        "packagesPath": "C:\\Users\\yahya.eraltay\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\yahya.eraltay\\source\\v1\\TaskManagementSystem\\TaskManagementSystem.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\yahya.eraltay\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\yahya.eraltay\\source\\v1\\TaskManagementSystem\\TaskManagementSystem.Infrastructure\\TaskManagementSystem.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\yahya.eraltay\\source\\v1\\TaskManagementSystem\\TaskManagementSystem.Infrastructure\\TaskManagementSystem.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Abstractions": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\yahya.eraltay\\source\\v1\\TaskManagementSystem\\TaskManagementSystem.Domain\\TaskManagementSystem.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\yahya.eraltay\\source\\v1\\TaskManagementSystem\\TaskManagementSystem.Domain\\TaskManagementSystem.Domain.csproj",
+        "projectName": "TaskManagementSystem.Domain",
+        "projectPath": "C:\\Users\\yahya.eraltay\\source\\v1\\TaskManagementSystem\\TaskManagementSystem.Domain\\TaskManagementSystem.Domain.csproj",
+        "packagesPath": "C:\\Users\\yahya.eraltay\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\yahya.eraltay\\source\\v1\\TaskManagementSystem\\TaskManagementSystem.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\yahya.eraltay\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\yahya.eraltay\\source\\v1\\TaskManagementSystem\\TaskManagementSystem.Infrastructure\\TaskManagementSystem.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\yahya.eraltay\\source\\v1\\TaskManagementSystem\\TaskManagementSystem.Infrastructure\\TaskManagementSystem.Infrastructure.csproj",
+        "projectName": "TaskManagementSystem.Infrastructure",
+        "projectPath": "C:\\Users\\yahya.eraltay\\source\\v1\\TaskManagementSystem\\TaskManagementSystem.Infrastructure\\TaskManagementSystem.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\yahya.eraltay\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\yahya.eraltay\\source\\v1\\TaskManagementSystem\\TaskManagementSystem.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\yahya.eraltay\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\yahya.eraltay\\source\\v1\\TaskManagementSystem\\TaskManagementSystem.Domain\\TaskManagementSystem.Domain.csproj": {
+                "projectPath": "C:\\Users\\yahya.eraltay\\source\\v1\\TaskManagementSystem\\TaskManagementSystem.Domain\\TaskManagementSystem.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.27, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.27, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
