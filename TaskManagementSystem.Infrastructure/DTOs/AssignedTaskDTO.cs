@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace TaskManagementSystem.Infrastructure.DTOs
 {
-    public class ToDoTaskDTO
+    public class AssignedTaskDTO
     {
         public string ToDoTaskName { get; set; }
-        public int DepartmentId { get; set; }
-        public int CreaterUserId { get; set; }
-        public int AssignedUserId { get; set; }
+        public string CreaterUserName { get; set; }
     }
 }

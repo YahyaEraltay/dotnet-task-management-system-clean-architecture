@@ -31,12 +31,13 @@ namespace TaskManagementSystem.Application.Services
         public async Task<List<UserDTO>> GetAllUsersAsync()
         {
             var users = await _userRepository.GetAllUsersAsync();
-            var response = new List<UserDTO>() { };
+            var response = new List<UserDTO>();
             foreach (var user in users)
             {
                 response.Add(new UserDTO()
                 {
                     UserName = user.UserName,
+                    Mail = user.Mail,
                     DepartmentId = user.DepartmentId,
                 });
             }
@@ -48,10 +49,12 @@ namespace TaskManagementSystem.Application.Services
             var userDTO = new UserDTO
             {
                 UserName = user.UserName,
+                Mail = user.Mail,
                 DepartmentId = user.DepartmentId,
             };
             return userDTO;
         }
+
         public async Task<User> LoginUserAsync(string userName)
         {
             return await _userRepository.GetUserByNameAsync(userName);
@@ -62,6 +65,7 @@ namespace TaskManagementSystem.Application.Services
             return new UserDTO
             {
                 UserName = userDto.UserName,
+                Mail = userDto.Mail,
                 DepartmentId = userDto.DepartmentId,
             };
         }

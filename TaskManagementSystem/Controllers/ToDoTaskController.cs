@@ -22,7 +22,7 @@ namespace TaskManagementSystem.API.Controllers
         [Route("GetAllToDoTask")]
         public async Task<IActionResult> GetAllToDoTask()
         {
-            var toDoTask = await _toDoTaskService.GetAllToDoTaskAsync();
+            var toDoTask = await _toDoTaskService.GetAllToDoTaskAync();
             return Ok(toDoTask);
         }
 

@@ -1,15 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "k7fakocNK/03xolEzxfyt457cTfDf/mi5p/yMp1kRR7uJT9W137fp/WjsdduRLUcZBrPKdDRAmRz/zihkW7l3A==",
+  "dgSpecHash": "bgqrK4g9yBTWNhZqdNxuRNMH/foM3X981CzqdqzhuPKNzRjG5+ns6W86oeuwDYgHIVvGJ70m8CRx69wu3zN+mg==",
   "success": true,
   "projectFilePath": "C:\\Users\\yahya.eraltay\\source\\v1\\TaskManagementSystem\\TaskManagementSystem.Infrastructure\\TaskManagementSystem.Infrastructure.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\yahya.eraltay\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\yahya.eraltay\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\yahya.eraltay\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.7\\microsoft.data.sqlclient.2.1.7.nupkg.sha512",
     "C:\\Users\\yahya.eraltay\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
     "C:\\Users\\yahya.eraltay\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.27\\microsoft.entityframeworkcore.6.0.27.nupkg.sha512",
     "C:\\Users\\yahya.eraltay\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.27\\microsoft.entityframeworkcore.abstractions.6.0.27.nupkg.sha512",
     "C:\\Users\\yahya.eraltay\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\6.0.27\\microsoft.entityframeworkcore.analyzers.6.0.27.nupkg.sha512",
+    "C:\\Users\\yahya.eraltay\\.nuget\\packages\\microsoft.entityframeworkcore.design\\6.0.27\\microsoft.entityframeworkcore.design.6.0.27.nupkg.sha512",
     "C:\\Users\\yahya.eraltay\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\6.0.27\\microsoft.entityframeworkcore.relational.6.0.27.nupkg.sha512",
     "C:\\Users\\yahya.eraltay\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\6.0.27\\microsoft.entityframeworkcore.sqlserver.6.0.27.nupkg.sha512",
     "C:\\Users\\yahya.eraltay\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\6.0.0\\microsoft.extensions.caching.abstractions.6.0.0.nupkg.sha512",

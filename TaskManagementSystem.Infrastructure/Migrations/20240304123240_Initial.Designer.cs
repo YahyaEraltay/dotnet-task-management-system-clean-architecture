@@ -11,8 +11,8 @@ using TaskManagementSystem.Infrastructure.RelationalDb;
 namespace TaskManagementSystem.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240227110734_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20240304123240_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -47,6 +47,9 @@ namespace TaskManagementSystem.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<int>("AssignedUserId")
+                        .HasColumnType("int");
+
                     b.Property<int>("CreaterUserId")
                         .HasColumnType("int");
 
@@ -57,6 +60,8 @@ namespace TaskManagementSystem.Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AssignedUserId");
 
                     b.HasIndex("CreaterUserId");
 
@@ -76,6 +81,9 @@ namespace TaskManagementSystem.Infrastructure.Migrations
                     b.Property<int>("DepartmentId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Mail")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("UserName")
                         .HasColumnType("nvarchar(max)");
 
@@ -88,6 +96,12 @@ namespace TaskManagementSystem.Infrastructure.Migrations
 
             modelBuilder.Entity("TaskManagementSystem.Domain.Entities.ToDoTask", b =>
                 {
+                    b.HasOne("TaskManagementSystem.Domain.Entities.User", "AssignedUser")
+                        .WithMany()
+                        .HasForeignKey("AssignedUserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("TaskManagementSystem.Domain.Entities.User", "CreaterUser")
                         .WithMany("ToDoTasks")
                         .HasForeignKey("CreaterUserId")
@@ -99,6 +113,8 @@ namespace TaskManagementSystem.Infrastructure.Migrations
                         .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("AssignedUser");
 
                     b.Navigation("CreaterUser");
 

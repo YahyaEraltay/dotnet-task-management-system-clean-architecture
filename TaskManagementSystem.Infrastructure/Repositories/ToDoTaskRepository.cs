@@ -18,12 +18,6 @@ namespace TaskManagementSystem.Infrastructure.Repositories
         {
             _context = context;
         }
-        public async Task<ToDoTask> AddToDoTaskAsync(ToDoTask toDoTask)
-        {
-            await _context.ToDoTask.AddAsync(toDoTask);
-            await _context.SaveChangesAsync();
-            return toDoTask;
-        }
 
         public async Task<ToDoTask> AddToDoTaskAsync(ToDoTaskDTO toDoTaskDto)
         {
@@ -31,7 +25,8 @@ namespace TaskManagementSystem.Infrastructure.Repositories
             {
                 ToDoTaskName = toDoTaskDto.ToDoTaskName,
                 DepartmentId = toDoTaskDto.DepartmentId,
-                CreaterUserId = toDoTaskDto.CreaterUserId
+                CreaterUserId = toDoTaskDto.CreaterUserId,
+                AssignedUserId = toDoTaskDto.AssignedUserId
             };
             await _context.AddAsync(toDoTask);
             await _context.SaveChangesAsync();

@@ -9,3 +9,4 @@ C:\Users\yahya.eraltay\source\v1\TaskManagementSystem\TaskManagementSystem.Domai
 C:\Users\yahya.eraltay\source\v1\TaskManagementSystem\TaskManagementSystem.Domain\obj\Debug\net6.0\refint\TaskManagementSystem.Domain.dll
 C:\Users\yahya.eraltay\source\v1\TaskManagementSystem\TaskManagementSystem.Domain\obj\Debug\net6.0\TaskManagementSystem.Domain.pdb
 C:\Users\yahya.eraltay\source\v1\TaskManagementSystem\TaskManagementSystem.Domain\obj\Debug\net6.0\ref\TaskManagementSystem.Domain.dll
+C:\Users\yahya.eraltay\source\v1\TaskManagementSystem\TaskManagementSystem.Domain\obj\Debug\net6.0\TaskManagementSystem.Domain.sourcelink.json

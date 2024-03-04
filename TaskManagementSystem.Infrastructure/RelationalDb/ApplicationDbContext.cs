@@ -25,6 +25,11 @@ namespace TaskManagementSystem.Infrastructure.RelationalDb
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<ToDoTask>()
+        .        HasOne(t => t.AssignedUser)
+                .WithMany() 
+                .HasForeignKey(t => t.AssignedUserId)
+                .OnDelete(DeleteBehavior.Restrict);
             base.OnModelCreating(modelBuilder);
         }
     }

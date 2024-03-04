@@ -16,6 +16,8 @@ namespace TaskManagementSystem.Domain.Entities
         public int DepartmentId { get; set; }
         public User CreaterUser { get; set; }
         public int CreaterUserId { get; set; }
+        public int AssignedUserId { get; set; }
+        public User AssignedUser { get; set; }
     }
 }
 

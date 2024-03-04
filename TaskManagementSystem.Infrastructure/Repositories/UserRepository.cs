@@ -14,6 +14,10 @@ namespace TaskManagementSystem.Infrastructure.Repositories
     {
         private readonly ApplicationDbContext _context;
 
+        public UserRepository()
+        {
+        }
+
         public UserRepository(ApplicationDbContext context)
         {
             _context = context;
@@ -23,7 +27,8 @@ namespace TaskManagementSystem.Infrastructure.Repositories
             var user = new User
             {
                 UserName = userDto.UserName,
-                DepartmentId = userDto.DepartmentId, 
+                Mail = userDto.Mail,
+                DepartmentId = userDto.DepartmentId,
             };
             await _context.AddAsync(user);
             await _context.SaveChangesAsync();
@@ -60,7 +65,7 @@ namespace TaskManagementSystem.Infrastructure.Repositories
 
         public async Task<User> GetUserByNameAsync(string userName)
         {
-          return await _context.Users.FirstOrDefaultAsync(x => x.UserName == userName);
+            return await _context.Users.FirstOrDefaultAsync(x => x.UserName == userName);
         }
 
         public async Task<User> UpdateUserAsync(UserDTO userDto, int id)
@@ -71,6 +76,7 @@ namespace TaskManagementSystem.Infrastructure.Repositories
                 throw new Exception("Id not found");
             }
             user.UserName = userDto.UserName;
+            user.Mail = userDto.Mail;
             user.DepartmentId = userDto.DepartmentId;
             await _context.SaveChangesAsync();
             return user;

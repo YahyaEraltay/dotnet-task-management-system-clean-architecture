@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace TaskManagementSystem.Infrastructure.DTOs
 {
-    public class UserDTO
+    public class TaskDTO
     {
         public string UserName { get; set; }
         public string Mail { get; set; }
-        //public string DepartmentName { get; set; }
-        public int DepartmentId { get; set; }
-        //public List<ToDoTaskDTO> AssignedTasks { get; set; }
+        public string DepartmentName { get; set; }
+        public List<AssignedTaskDTO> AssignedTasks { get; set; }
     }
 }

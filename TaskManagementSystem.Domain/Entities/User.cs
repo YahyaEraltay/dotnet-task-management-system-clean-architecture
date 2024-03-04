@@ -10,6 +10,7 @@ namespace TaskManagementSystem.Domain.Entities
     {
         public int Id { get; set; }
         public string UserName { get; set; }
+        public string Mail { get; set; }
 
         //Many to One
         public Department Department { get; set; }
