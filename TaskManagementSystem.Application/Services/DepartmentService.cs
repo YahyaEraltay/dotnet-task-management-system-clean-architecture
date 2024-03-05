@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TaskManagementSystem.Domain.Entities;
-using TaskManagementSystem.Infrastructure.DTOs;
+using TaskManagementSystem.Infrastructure.DTOs.DepartmentDTO;
 using TaskManagementSystem.Infrastructure.Repositories;
 
 namespace TaskManagementSystem.Application.Services

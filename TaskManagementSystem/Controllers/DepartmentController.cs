@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TaskManagementSystem.Application.Services;
 using TaskManagementSystem.Domain.Entities;
-using TaskManagementSystem.Infrastructure.DTOs;
+using TaskManagementSystem.Infrastructure.DTOs.DepartmentDTO;
 
 namespace TaskManagementSystem.API.Controllers
 {
