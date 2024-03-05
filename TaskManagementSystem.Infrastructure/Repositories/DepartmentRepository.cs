@@ -60,7 +60,7 @@ namespace TaskManagementSystem.Infrastructure.Repositories
             var department = await _context.Departments.FindAsync(id);
             if (department == null)
             {
-                throw new Exception("User Not Found");
+                throw new Exception("Department Not Found");
             }
             return department;
         }

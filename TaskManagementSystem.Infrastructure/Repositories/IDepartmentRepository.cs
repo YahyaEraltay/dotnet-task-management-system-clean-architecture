@@ -15,6 +15,5 @@ namespace TaskManagementSystem.Infrastructure.Repositories
         Task<Department> AddDepartmentAsync(DepartmentDTO departmentDto);
         Task<Department> UpdateDepartmentAsync(DepartmentDTO departmentDto, int id);
         Task DeleteDepartmentAsync(int id);
-
     }
 }

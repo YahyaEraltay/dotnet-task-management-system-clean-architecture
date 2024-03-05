@@ -9,7 +9,7 @@ using System.Text;
 using TaskManagementSystem.Application.Auth;
 using TaskManagementSystem.Application.Services;
 using TaskManagementSystem.Domain.Entities;
-using TaskManagementSystem.Infrastructure.DTOs;
+using TaskManagementSystem.Infrastructure.DTOs.UserDTOs;
 
 namespace TaskManagementSystem.API.Controllers
 {

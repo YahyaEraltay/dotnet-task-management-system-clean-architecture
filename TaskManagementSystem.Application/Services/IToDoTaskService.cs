@@ -11,7 +11,6 @@ namespace TaskManagementSystem.Application.Services
     public interface IToDoTaskService
     {
         Task<ToDoTaskDTO> GetToDoTaskByIdAsync(int id);
-        //Task<List<ToDoTaskDTO>> GetAllToDoTaskAsync();
         Task<ToDoTaskDTO> AddToDoTaskAsync(ToDoTaskDTO toDoTaskDto);
         Task<ToDoTask> UpdateToDoTaskAsync(ToDoTaskDTO toDoTaskDto, int id);
         Task DeleteToDoTaskAsync(int id);

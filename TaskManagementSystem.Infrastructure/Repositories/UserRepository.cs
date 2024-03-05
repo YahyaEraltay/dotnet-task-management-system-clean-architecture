@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TaskManagementSystem.Domain.Entities;
-using TaskManagementSystem.Infrastructure.DTOs;
+using TaskManagementSystem.Infrastructure.DTOs.UserDTOs;
 using TaskManagementSystem.Infrastructure.RelationalDb;
 
 namespace TaskManagementSystem.Infrastructure.Repositories

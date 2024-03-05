@@ -193,7 +193,7 @@
     "Parameters": [
       {
         "Name": "userDto",
-        "Type": "TaskManagementSystem.Infrastructure.DTOs.UserDTO",
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.UserDTOs.UserDTO",
         "IsRequired": true
       },
       {
@@ -230,7 +230,7 @@
     "Parameters": [
       {
         "Name": "userDto",
-        "Type": "TaskManagementSystem.Infrastructure.DTOs.UserDTO",
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.UserDTOs.UserDTO",
         "IsRequired": true
       }
     ],

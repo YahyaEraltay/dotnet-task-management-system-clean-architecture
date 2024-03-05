@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TaskManagementSystem.Domain.Entities;
-using TaskManagementSystem.Infrastructure.DTOs;
+using TaskManagementSystem.Infrastructure.DTOs.UserDTOs;
 using TaskManagementSystem.Infrastructure.Repositories;
 
 namespace TaskManagementSystem.Application.Services
@@ -12,10 +12,12 @@ namespace TaskManagementSystem.Application.Services
     public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
+        private readonly IDepartmentRepository _departmentRepository;
 
-        public UserService(IUserRepository userRepository)
+        public UserService(IUserRepository userRepository, IDepartmentRepository departmentRepository)
         {
             _userRepository = userRepository;
+            _departmentRepository = departmentRepository;
         }
 
         public async Task<UserDTO> AddUserAsync(UserDTO userDto)
@@ -28,29 +30,31 @@ namespace TaskManagementSystem.Application.Services
         {
             await _userRepository.DeleteUserAsync(id);
         }
-        public async Task<List<UserDTO>> GetAllUsersAsync()
+        public async Task<List<GetUserDTO>> GetAllUsersAsync()
         {
             var users = await _userRepository.GetAllUsersAsync();
-            var response = new List<UserDTO>();
+            var response = new List<GetUserDTO>();
             foreach (var user in users)
             {
-                response.Add(new UserDTO()
-                {
-                    UserName = user.UserName,
-                    Mail = user.Mail,
-                    DepartmentId = user.DepartmentId,
-                });
+                var department = await _departmentRepository.GetDepartmentByIdAsync(user.DepartmentId);
+                    response.Add(new GetUserDTO()
+                    {
+                        UserName = user.UserName,
+                        Mail = user.Mail,
+                        DepartmentName = department.DepartmentName,
+                    });
             }
             return response;
         }
-        public async Task<UserDTO> GetUserByIdAsync(int id)
+        public async Task<GetUserDTO> GetUserByIdAsync(int id)
         {
             var user = await _userRepository.GetUserByIdAsync(id);
-            var userDTO = new UserDTO
+            var department = await _departmentRepository.GetDepartmentByIdAsync(user.DepartmentId);
+            var userDTO = new GetUserDTO
             {
                 UserName = user.UserName,
                 Mail = user.Mail,
-                DepartmentId = user.DepartmentId,
+                DepartmentName = department.DepartmentName,
             };
             return userDTO;
         }
