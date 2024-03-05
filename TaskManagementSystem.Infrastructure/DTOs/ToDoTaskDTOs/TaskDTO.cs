@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TaskManagementSystem.Infrastructure.DTOs
+namespace TaskManagementSystem.Infrastructure.DTOs.ToDoTaskDTOs
 {
     public class TaskDTO
     {
