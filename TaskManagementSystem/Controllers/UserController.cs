@@ -10,6 +10,7 @@ using TaskManagementSystem.Application.Auth;
 using TaskManagementSystem.Application.Services;
 using TaskManagementSystem.Domain.Entities;
 using TaskManagementSystem.Infrastructure.DTOs.UserDTOs;
+using TaskManagementSystem.Infrastructure.DTOs.UserDTOs.UserRequestModel;
 
 namespace TaskManagementSystem.API.Controllers
 {
@@ -37,55 +38,52 @@ namespace TaskManagementSystem.API.Controllers
             return Ok(users);
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetUserById(int id)
+        [HttpGet]
+        public async Task<IActionResult> GetUserById([FromBody] GetUserByIdRequestDTO request)
         {
-            var user = await _userService.GetUserByIdAsync(id);
+            var user = await _userService.GetUserByIdAsync(request);
             return Ok(user);
         }
 
         [HttpPost]
-        [Route("AddUser")]
-        public async Task<IActionResult> AddUser(UserDTO userDto)
+        public async Task<IActionResult> AddUser([FromBody] UserRequestDTO request)
         {
-            var newUser = await _userService.AddUserAsync(userDto);
+            var newUser = await _userService.AddUserAsync(request);
+
             return Ok(newUser);
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateUser(UserDTO userDto, int id)
+        [HttpPut]
+        public async Task<IActionResult> UpdateUser([FromBody] UpdateUserRequestDTO request)
         {
-            var user = await _userService.UpdateUserAsync(userDto, id);
+            var user = await _userService.UpdateUserAsync(request);
             return Ok(user);
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteUser(int id)
+        [HttpDelete]
+        public async Task<IActionResult> DeleteUser([FromBody] DeleteUserRequestDTO request)
         {
-            await _userService.DeleteUserAsync(id);
+            await _userService.DeleteUserAsync(request);
             return Ok();
         }
         [AllowAnonymous]
         [HttpPost("Login")]
-        public async Task<IActionResult> Login(string userName)
+        public async Task<IActionResult> Login([FromBody] LoginUserRequestDTO request)
         {
-            var user = await _userService.LoginUserAsync(userName);
-
+            var user = await _userService.LoginUserAsync(request);
             if (user == null)
             {
                 return Unauthorized(new { message = "Invalid username" });
             }
-
             var token = _generateJwtToken.GenerateToken(user);
-
             return Ok(new { token });
         }
 
         [HttpGet("GetCurrrentUser")]
         public IActionResult GetCurrentUser()
         {
-            var userName = _currentUserService.GetCurrentUserName();
-            return Ok(new { userName });
+            var user = _currentUserService.GetCurrentUser();
+            return Ok(new { user });
         }
 
     }

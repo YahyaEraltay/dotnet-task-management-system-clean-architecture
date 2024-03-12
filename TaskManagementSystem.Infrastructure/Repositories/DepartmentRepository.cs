@@ -1,11 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TaskManagementSystem.Domain.Entities;
-using TaskManagementSystem.Infrastructure.DTOs;
+using TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentRequestModel;
 using TaskManagementSystem.Infrastructure.RelationalDb;
 
 namespace TaskManagementSystem.Infrastructure.Repositories
@@ -19,23 +14,21 @@ namespace TaskManagementSystem.Infrastructure.Repositories
             _context = context;
         }
 
-        public async Task<Department> AddDepartmentAsync(DepartmentDTO departmentDto)
+        public async Task<Department> AddDepartmentAsync(Department department)
         {
-            var department = new Department
-            {
-                DepartmentName = departmentDto.DepartmentName
-            };
-            await _context.AddAsync(department);
+            _context.Departments.Add(department);
             await _context.SaveChangesAsync();
+
             return department;
         }
 
         public async Task DeleteDepartmentAsync(int id)
         {
-            var x = await _context.Departments.FindAsync(id);
-            if (x != null)
+            var department = await _context.Departments.FirstOrDefaultAsync(x => x.Id == id);
+
+            if (department != null)
             {
-                _context.Departments.Remove(x);
+                _context.Departments.Remove(department);
                 await _context.SaveChangesAsync();
             }
             else
@@ -46,10 +39,11 @@ namespace TaskManagementSystem.Infrastructure.Repositories
 
         public async Task<List<Department>> GetAllDepartmentAsync()
         {
-            var x = await _context.Departments.ToListAsync();
-            if (x != null)
+            var departments = await _context.Departments.ToListAsync();
+
+            if (departments != null)
             {
-                return x;
+                return departments;
             }
 
             throw new Exception("There is no department");
@@ -57,20 +51,30 @@ namespace TaskManagementSystem.Infrastructure.Repositories
 
         public async Task<Department> GetDepartmentByIdAsync(int id)
         {
-            var department = await _context.Departments.FindAsync(id);
+            var department = await _context.Departments.FirstOrDefaultAsync(x => x.Id == id);
+
             if (department == null)
             {
                 throw new Exception("Department Not Found");
             }
+
             return department;
         }
 
-        public async Task<Department> UpdateDepartmentAsync(DepartmentDTO departmentDto, int id)
+        public async Task<Department> UpdateDepartmentAsync(UpdateDepartmentRequestDTO request)
         {
-            var department = await _context.Departments.FindAsync(id);
-            department.DepartmentName = departmentDto.DepartmentName;
+            var department = await _context.Departments.FindAsync(request.Id);
+
+            if (department == null)
+            {
+                throw new Exception("Department Not Found");
+            }
+
+            department.DepartmentName = request.DepartmentName;
+
             _context.Update(department);
             await _context.SaveChangesAsync();
+
             return department;
 
         }

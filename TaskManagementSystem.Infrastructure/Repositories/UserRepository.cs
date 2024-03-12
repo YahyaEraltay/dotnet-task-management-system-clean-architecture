@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TaskManagementSystem.Domain.Entities;
 using TaskManagementSystem.Infrastructure.DTOs.UserDTOs;
+using TaskManagementSystem.Infrastructure.DTOs.UserDTOs.UserRequestModel;
 using TaskManagementSystem.Infrastructure.RelationalDb;
 
 namespace TaskManagementSystem.Infrastructure.Repositories
@@ -14,32 +15,25 @@ namespace TaskManagementSystem.Infrastructure.Repositories
     {
         private readonly ApplicationDbContext _context;
 
-        public UserRepository()
-        {
-        }
 
         public UserRepository(ApplicationDbContext context)
         {
             _context = context;
         }
-        public async Task<User> AddUserAsync(UserDTO userDto)
+        public async Task<User> AddUserAsync(User user)
         {
-            var user = new User
-            {
-                UserName = userDto.UserName,
-                Mail = userDto.Mail,
-                DepartmentId = userDto.DepartmentId,
-            };
-            await _context.AddAsync(user);
+            _context.Users.Add(user);
             await _context.SaveChangesAsync();
+
             return user;
         }
         public async Task DeleteUserAsync(int id)
         {
-            var x = await _context.Users.FindAsync(id);
-            if (x != null)
+            var user = await _context.Users.FirstOrDefaultAsync(x => x.Id == id);
+
+            if (user != null)
             {
-                _context.Users.Remove(x);
+                _context.Users.Remove(user);
                 await _context.SaveChangesAsync();
             }
             else
@@ -55,30 +49,35 @@ namespace TaskManagementSystem.Infrastructure.Repositories
 
         public async Task<User> GetUserByIdAsync(int id)
         {
-            var user = await _context.Users.FindAsync(id);
+            var user = await _context.Users.FirstOrDefaultAsync(x => x.Id == id);
+
             if (user == null)
             {
                 throw new Exception("User Not Found");
             }
+
             return user;
         }
 
-        public async Task<User> GetUserByNameAsync(string userName)
+        public async Task<User> GetUserByNameAsync(string mail)
         {
-            return await _context.Users.FirstOrDefaultAsync(x => x.UserName == userName);
+            return await _context.Users.FirstOrDefaultAsync(x => x.Mail == mail);
         }
 
-        public async Task<User> UpdateUserAsync(UserDTO userDto, int id)
+        public async Task<User> UpdateUserAsync(UpdateUserRequestDTO request)
         {
-            var user = await _context.Users.FindAsync(id);
+            var user = await _context.Users.FindAsync(request.Id);
+
             if (user == null)
             {
                 throw new Exception("Id not found");
             }
-            user.UserName = userDto.UserName;
-            user.Mail = userDto.Mail;
-            user.DepartmentId = userDto.DepartmentId;
+            user.UserName = request.UserName;
+            user.Mail = request.Mail;
+            user.DepartmentId = request.DepartmentId;
+
             await _context.SaveChangesAsync();
+
             return user;
         }
     }

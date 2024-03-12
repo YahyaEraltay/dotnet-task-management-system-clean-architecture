@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TaskManagementSystem.Domain.Entities;
-using TaskManagementSystem.Infrastructure.DTOs.DepartmentDTO;
+﻿using TaskManagementSystem.Domain.Entities;
+using TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentRequestModel;
+using TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentResponseModel;
 using TaskManagementSystem.Infrastructure.Repositories;
 
 namespace TaskManagementSystem.Application.Services
@@ -17,25 +13,38 @@ namespace TaskManagementSystem.Application.Services
             _departmentRepository = departmentRepository;
         }
 
-        public async Task<DepartmentDTO> AddDepartmentAsync(DepartmentDTO departmentDto)
+        public async Task<DepartmentResponseDTO> AddDepartmentAsync(DepartmentRequestDTO request)
         {
-            await _departmentRepository.AddDepartmentAsync(departmentDto);
-            return departmentDto;
+            var department = new Department
+            {
+                DepartmentName = request.DepartmentName
+            };
+
+            await _departmentRepository.AddDepartmentAsync(department);
+
+            return new DepartmentResponseDTO
+            {
+                Id = department.Id,
+                DepartmentName = department.DepartmentName
+            };
         }
 
-        public async Task DeleteDepartmentAsync(int id)
+        public async Task DeleteDepartmentAsync(DeleteDepartmentRequestDTO request)
         {
-            await _departmentRepository.DeleteDepartmentAsync(id);
+            await _departmentRepository.DeleteDepartmentAsync(request.Id);
         }
 
-        public async Task<List<DepartmentDTO>> GetAllDepartmentAsync()
+        public async Task<List<DepartmentResponseDTO>> GetAllDepartmentAsync()
         {
             var departments = await _departmentRepository.GetAllDepartmentAsync();
-            var response = new List<DepartmentDTO> { };
+
+            var response = new List<DepartmentResponseDTO>();
+
             foreach (var department in departments)
             {
-                response.Add(new DepartmentDTO()
+                response.Add(new DepartmentResponseDTO()
                 {
+                    Id = department.Id,
                     DepartmentName = department.DepartmentName
                 });
 
@@ -43,18 +52,30 @@ namespace TaskManagementSystem.Application.Services
             return response;
         }
 
-        public async Task<DepartmentDTO> GetDepartmentByIdAsync(int id)
+        public async Task<GetDepartmentByIdResponseDTO> GetDepartmentByIdAsync(GetDepartmentByIdRequestDTO request)
         {
-            var department = await _departmentRepository.GetDepartmentByIdAsync(id);
-            return new DepartmentDTO
+            var department = await _departmentRepository.GetDepartmentByIdAsync(request.Id);
+
+            return new GetDepartmentByIdResponseDTO
             {
+                Id = department.Id,
                 DepartmentName = department.DepartmentName
             };
         }
 
-        public async Task<Department> UpdateDepartmentAsync(DepartmentDTO departmentDto, int id)
+        public async Task<UpdateDepartmentResponseDTO> UpdateDepartmentAsync(UpdateDepartmentRequestDTO request)
         {
-            return await _departmentRepository.UpdateDepartmentAsync(departmentDto, id);
+            var department = await _departmentRepository.GetDepartmentByIdAsync(request.Id);
+
+            department.DepartmentName = request.DepartmentName;
+
+            await _departmentRepository.UpdateDepartmentAsync(request);
+
+            return new UpdateDepartmentResponseDTO()
+            {
+                Id = department.Id,
+                DepartmentName = department.DepartmentName
+            };
         }
     }
 }

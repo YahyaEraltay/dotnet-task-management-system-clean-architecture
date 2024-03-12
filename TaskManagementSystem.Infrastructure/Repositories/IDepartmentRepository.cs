@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TaskManagementSystem.Domain.Entities;
-using TaskManagementSystem.Infrastructure.DTOs.DepartmentDTO;
+﻿using TaskManagementSystem.Domain.Entities;
+using TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentRequestModel;
 
 namespace TaskManagementSystem.Infrastructure.Repositories
 {
@@ -12,8 +7,8 @@ namespace TaskManagementSystem.Infrastructure.Repositories
     {
         Task<Department> GetDepartmentByIdAsync(int id);
         Task<List<Department>> GetAllDepartmentAsync();
-        Task<Department> AddDepartmentAsync(DepartmentDTO departmentDto);
-        Task<Department> UpdateDepartmentAsync(DepartmentDTO departmentDto, int id);
+        Task<Department> AddDepartmentAsync(Department department);
+        Task<Department> UpdateDepartmentAsync(UpdateDepartmentRequestDTO request);
         Task DeleteDepartmentAsync(int id);
     }
 }

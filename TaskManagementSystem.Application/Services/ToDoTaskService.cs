@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using TaskManagementSystem.Domain.Entities;
 using TaskManagementSystem.Infrastructure.DTOs.ToDoTaskDTOs;
+using TaskManagementSystem.Infrastructure.DTOs.ToDoTaskDTOs.ToDoTaskRequestModel;
+using TaskManagementSystem.Infrastructure.DTOs.ToDoTaskDTOs.ToDoTaskResponseModel;
 using TaskManagementSystem.Infrastructure.Repositories;
 
 namespace TaskManagementSystem.Application.Services
@@ -22,15 +24,31 @@ namespace TaskManagementSystem.Application.Services
             _userRepository = userRepository;
         }
 
-        public async Task<ToDoTaskDTO> AddToDoTaskAsync(ToDoTaskDTO toDoTaskDto)
+        public async Task<ToDoTaskResponseDTO> AddToDoTaskAsync(ToDoTaskRequestDTO request)
         {
-            await _toDoTaskRepository.AddToDoTaskAsync(toDoTaskDto);
-            return toDoTaskDto;
+            var toDoTask = new ToDoTask()
+            {
+                ToDoTaskName = request.ToDoTaskName,
+                DepartmentId = request.DepartmentId,
+                CreaterUserId = request.CreaterUserId,
+                AssignedUserId = request.AssignedUserId,
+            };
+
+            await _toDoTaskRepository.AddToDoTaskAsync(toDoTask);
+
+            return new ToDoTaskResponseDTO
+            {
+                Id = toDoTask.Id,
+                ToDoTaskName = toDoTask.ToDoTaskName,
+                DepartmentId = toDoTask.DepartmentId,
+                CreaterUserId = toDoTask.CreaterUserId,
+                AssignedUserId = toDoTask.AssignedUserId,
+            };
         }
 
-        public async Task DeleteToDoTaskAsync(int id)
+        public async Task DeleteToDoTaskAsync(DeleteToDoTaskRequestDTO request)
         {
-            await _toDoTaskRepository.DeleteToDoTaskAsync(id);
+            await _toDoTaskRepository.DeleteToDoTaskAsync(request.Id);
         }
 
         public async Task<List<TaskDTO>> GetAllToDoTaskAync()
@@ -45,6 +63,7 @@ namespace TaskManagementSystem.Application.Services
 
                 var taskDTO = new TaskDTO
                 {
+                    Id = user.Id,
                     UserName = user.UserName,
                     Mail = user.Mail,
                     DepartmentName = department.DepartmentName,

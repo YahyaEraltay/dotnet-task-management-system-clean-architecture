@@ -1,9 +1,7 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using TaskManagementSystem.Application.Services;
-using TaskManagementSystem.Domain.Entities;
-using TaskManagementSystem.Infrastructure.DTOs.DepartmentDTO;
+using TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentRequestModel;
+using TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentResponseModel;
 
 namespace TaskManagementSystem.API.Controllers
 {
@@ -26,32 +24,33 @@ namespace TaskManagementSystem.API.Controllers
             return Ok(departments);
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetDepartmentById(int id)
+        [HttpGet]
+        public async Task<IActionResult> GetDepartmentById([FromBody] GetDepartmentByIdRequestDTO request)
         {
-            var department = await _departmentService.GetDepartmentByIdAsync(id);
+            var department = await _departmentService.GetDepartmentByIdAsync(request);
+
             return Ok(department);
         }
+
 
         [HttpPost]
-        [Route("AddDepartment")]
-        public async Task<IActionResult> AddDepartment(DepartmentDTO departmentDto)
+        public async Task<IActionResult> AddDepartment([FromBody] DepartmentRequestDTO request)
         {
-            var department = await _departmentService.AddDepartmentAsync(departmentDto);
+            var department = await _departmentService.AddDepartmentAsync(request);
             return Ok(department);
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateDepartment(DepartmentDTO departmentDto, int id)
+        [HttpPut]
+        public async Task<IActionResult> UpdateDepartment([FromBody] UpdateDepartmentRequestDTO request)
         {
-            await _departmentService.UpdateDepartmentAsync(departmentDto,id);
-            return Ok(departmentDto);
+            await _departmentService.UpdateDepartmentAsync(request);
+            return Ok(request);
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteDepartment(int id)
+        [HttpDelete]
+        public async Task<IActionResult> DeleteDepartment([FromBody] DeleteDepartmentRequestDTO request)
         {
-            await _departmentService.DeleteDepartmentAsync(id);
+            await _departmentService.DeleteDepartmentAsync(request);
             return Ok();
         }
     }

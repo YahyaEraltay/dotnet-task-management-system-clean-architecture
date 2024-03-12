@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TaskManagementSystem.Domain.Entities;
 using TaskManagementSystem.Infrastructure.DTOs.UserDTOs;
+using TaskManagementSystem.Infrastructure.DTOs.UserDTOs.UserRequestModel;
 
 namespace TaskManagementSystem.Infrastructure.Repositories
 {
@@ -12,9 +13,9 @@ namespace TaskManagementSystem.Infrastructure.Repositories
     {
         Task<User> GetUserByIdAsync(int id);
         Task<List<User>> GetAllUsersAsync();
-        Task<User> AddUserAsync(UserDTO userDto);
-        Task<User> UpdateUserAsync(UserDTO userDto, int id);
+        Task<User> AddUserAsync(User user);
+        Task<User> UpdateUserAsync(UpdateUserRequestDTO request);
         Task DeleteUserAsync(int id);
-        Task<User> GetUserByNameAsync(string userName);
+        Task<User> GetUserByNameAsync(string mail);
     }
 }

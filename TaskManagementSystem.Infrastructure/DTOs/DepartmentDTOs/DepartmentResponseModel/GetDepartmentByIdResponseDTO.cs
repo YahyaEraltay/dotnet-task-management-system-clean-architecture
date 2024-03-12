@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TaskManagementSystem.Infrastructure.DTOs.UserDTOs
+namespace TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentResponseModel
 {
-    public class GetUserDTO
+    public class GetDepartmentByIdResponseDTO
     {
-        public string UserName { get; set; }
-        public string Mail { get; set; }
+        public int Id { get; set; }
         public string DepartmentName { get; set; }
     }
 }

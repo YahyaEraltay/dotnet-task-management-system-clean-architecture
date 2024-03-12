@@ -2,51 +2,14 @@
   {
     "ContainingType": "TaskManagementSystem.API.Controllers.DepartmentController",
     "Method": "GetDepartmentById",
-    "RelativePath": "api/Department/{id}",
+    "RelativePath": "api/Department",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "TaskManagementSystem.API.Controllers.DepartmentController",
-    "Method": "UpdateDepartment",
-    "RelativePath": "api/Department/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "departmentDto",
-        "Type": "TaskManagementSystem.Infrastructure.DTOs.DepartmentDTO",
-        "IsRequired": true
-      },
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "TaskManagementSystem.API.Controllers.DepartmentController",
-    "Method": "DeleteDepartment",
-    "RelativePath": "api/Department/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
+        "Name": "request",
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentRequestModel.GetDepartmentByIdRequestDTO",
         "IsRequired": true
       }
     ],
@@ -55,14 +18,46 @@
   {
     "ContainingType": "TaskManagementSystem.API.Controllers.DepartmentController",
     "Method": "AddDepartment",
-    "RelativePath": "api/Department/AddDepartment",
+    "RelativePath": "api/Department",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "departmentDto",
-        "Type": "TaskManagementSystem.Infrastructure.DTOs.DepartmentDTO",
+        "Name": "request",
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentRequestModel.DepartmentRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TaskManagementSystem.API.Controllers.DepartmentController",
+    "Method": "UpdateDepartment",
+    "RelativePath": "api/Department",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentRequestModel.UpdateDepartmentRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TaskManagementSystem.API.Controllers.DepartmentController",
+    "Method": "DeleteDepartment",
+    "RelativePath": "api/Department",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentRequestModel.DeleteDepartmentRequestDTO",
         "IsRequired": true
       }
     ],
@@ -76,6 +71,22 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TaskManagementSystem.API.Controllers.ToDoTaskController",
+    "Method": "DeleteToDoTask",
+    "RelativePath": "api/ToDoTask",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.ToDoTaskDTOs.ToDoTaskRequestModel.DeleteToDoTaskRequestDTO",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -104,25 +115,9 @@
     "Parameters": [
       {
         "Name": "toDoTaskDto",
-        "Type": "TaskManagementSystem.Infrastructure.DTOs.ToDoTaskDTO",
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.ToDoTaskDTOs.ToDoTaskDTO",
         "IsRequired": true
       },
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "TaskManagementSystem.API.Controllers.ToDoTaskController",
-    "Method": "DeleteToDoTask",
-    "RelativePath": "api/ToDoTask/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
       {
         "Name": "id",
         "Type": "System.Int32",
@@ -140,8 +135,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "toDoTaskDto",
-        "Type": "TaskManagementSystem.Infrastructure.DTOs.ToDoTaskDTO",
+        "Name": "request",
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.ToDoTaskDTOs.ToDoTaskRequestModel.ToDoTaskRequestDTO",
         "IsRequired": true
       }
     ],
@@ -170,51 +165,14 @@
   {
     "ContainingType": "TaskManagementSystem.API.Controllers.UserController",
     "Method": "GetUserById",
-    "RelativePath": "api/User/{id}",
+    "RelativePath": "api/User",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "TaskManagementSystem.API.Controllers.UserController",
-    "Method": "UpdateUser",
-    "RelativePath": "api/User/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "userDto",
-        "Type": "TaskManagementSystem.Infrastructure.DTOs.UserDTOs.UserDTO",
-        "IsRequired": true
-      },
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "TaskManagementSystem.API.Controllers.UserController",
-    "Method": "DeleteUser",
-    "RelativePath": "api/User/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
+        "Name": "request",
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.UserDTOs.UserRequestModel.GetUserByIdRequestDTO",
         "IsRequired": true
       }
     ],
@@ -223,14 +181,46 @@
   {
     "ContainingType": "TaskManagementSystem.API.Controllers.UserController",
     "Method": "AddUser",
-    "RelativePath": "api/User/AddUser",
+    "RelativePath": "api/User",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "userDto",
-        "Type": "TaskManagementSystem.Infrastructure.DTOs.UserDTOs.UserDTO",
+        "Name": "request",
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.UserDTOs.UserRequestModel.UserRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TaskManagementSystem.API.Controllers.UserController",
+    "Method": "UpdateUser",
+    "RelativePath": "api/User",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.UserDTOs.UserRequestModel.UpdateUserRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TaskManagementSystem.API.Controllers.UserController",
+    "Method": "DeleteUser",
+    "RelativePath": "api/User",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.UserDTOs.UserRequestModel.DeleteUserRequestDTO",
         "IsRequired": true
       }
     ],
@@ -265,9 +255,9 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "userName",
-        "Type": "System.String",
-        "IsRequired": false
+        "Name": "request",
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.UserDTOs.UserRequestModel.LoginUserRequestDTO",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

@@ -8,6 +8,6 @@ namespace TaskManagementSystem.Application.Auth
 {
     public interface ICurrentUserService
     {
-        string GetCurrentUserName();
+        string GetCurrentUser();
     }
 }

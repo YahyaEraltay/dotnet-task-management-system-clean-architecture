@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TaskManagementSystem.Domain.Entities;
-using TaskManagementSystem.Infrastructure.DTOs.DepartmentDTO;
+﻿using TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentRequestModel;
+using TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentResponseModel;
 
 namespace TaskManagementSystem.Application.Services
 {
     public interface IDepartmentService
     {
-        Task<DepartmentDTO> GetDepartmentByIdAsync(int id);
-        Task<List<DepartmentDTO>> GetAllDepartmentAsync();
-        Task<DepartmentDTO> AddDepartmentAsync(DepartmentDTO departmentDto);
-        Task<Department> UpdateDepartmentAsync(DepartmentDTO departmentDto, int id);
-        Task DeleteDepartmentAsync(int id);
+        Task<GetDepartmentByIdResponseDTO> GetDepartmentByIdAsync(GetDepartmentByIdRequestDTO request);
+        Task<List<DepartmentResponseDTO>> GetAllDepartmentAsync();
+        Task<DepartmentResponseDTO> AddDepartmentAsync(DepartmentRequestDTO request);
+        Task<UpdateDepartmentResponseDTO> UpdateDepartmentAsync(UpdateDepartmentRequestDTO request);
+        Task DeleteDepartmentAsync(DeleteDepartmentRequestDTO request);
     }
 }

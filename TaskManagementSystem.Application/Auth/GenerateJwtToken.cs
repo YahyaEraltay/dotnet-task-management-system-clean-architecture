@@ -39,7 +39,7 @@ namespace TaskManagementSystem.Application.Auth
                 Subject = new ClaimsIdentity(new[]
                 {
                     new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                    new Claim(ClaimTypes.Name, user.UserName)
+                    new Claim(ClaimTypes.Name, user.Mail)
                 }),
                 Expires = DateTime.UtcNow.AddHours(1),
                 Audience = _configuration["Jwt:Audience"],

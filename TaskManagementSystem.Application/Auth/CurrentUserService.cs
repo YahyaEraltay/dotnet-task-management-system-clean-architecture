@@ -18,7 +18,7 @@ namespace TaskManagementSystem.Application.Auth
             _httpContextAccessor = httpContextAccessor;
         }
 
-        public string GetCurrentUserName()
+        public string GetCurrentUser()
         {
             return _httpContextAccessor.HttpContext.User.Identity.Name;
         }

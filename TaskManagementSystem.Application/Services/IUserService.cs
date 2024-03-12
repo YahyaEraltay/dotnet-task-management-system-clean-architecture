@@ -1,20 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TaskManagementSystem.Domain.Entities;
-using TaskManagementSystem.Infrastructure.DTOs.UserDTOs;
+﻿using TaskManagementSystem.Domain.Entities;
+using TaskManagementSystem.Infrastructure.DTOs.UserDTOs.UserRequestModel;
+using TaskManagementSystem.Infrastructure.DTOs.UserDTOs.UserResponseModel;
 
 namespace TaskManagementSystem.Application.Services
 {
     public interface IUserService
     {
-        Task<GetUserDTO> GetUserByIdAsync(int id);
-        Task<List<GetUserDTO>> GetAllUsersAsync();
-        Task<UserDTO> AddUserAsync(UserDTO userDto);
-        Task<UserDTO> UpdateUserAsync(UserDTO userDto, int id);
-        Task DeleteUserAsync(int id);
-        Task<User> LoginUserAsync(string userName);
+        Task<GetUserByIdResponseDTO> GetUserByIdAsync(GetUserByIdRequestDTO request);
+        Task<List<GetUserResponseDTO>> GetAllUsersAsync();
+        Task<UserResponseDTO> AddUserAsync(UserRequestDTO request);
+        Task<UpdateUserResponseDTO> UpdateUserAsync(UpdateUserRequestDTO request);
+        Task DeleteUserAsync(DeleteUserRequestDTO request);
+        Task<User> LoginUserAsync(LoginUserRequestDTO request);
     }
 }

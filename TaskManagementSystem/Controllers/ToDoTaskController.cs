@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using TaskManagementSystem.Application.Services;
 using TaskManagementSystem.Domain.Entities;
 using TaskManagementSystem.Infrastructure.DTOs.ToDoTaskDTOs;
+using TaskManagementSystem.Infrastructure.DTOs.ToDoTaskDTOs.ToDoTaskRequestModel;
 
 namespace TaskManagementSystem.API.Controllers
 {
@@ -35,23 +36,23 @@ namespace TaskManagementSystem.API.Controllers
 
         [HttpPost]
         [Route("AddToDoTask")]
-        public async Task<ActionResult<ToDoTask>> AddToDoTask(ToDoTaskDTO toDoTaskDto)
+        public async Task<ActionResult<ToDoTask>> AddToDoTask([FromBody] ToDoTaskRequestDTO request)
         {
-            var newTasks = await _toDoTaskService.AddToDoTaskAsync(toDoTaskDto);
+            var newTasks = await _toDoTaskService.AddToDoTaskAsync(request);
             return Ok(newTasks);
         }
 
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateToDoTask(ToDoTaskDTO toDoTaskDto, int id)
         {
-            await _toDoTaskService.UpdateToDoTaskAsync(toDoTaskDto,id);
+            await _toDoTaskService.UpdateToDoTaskAsync(toDoTaskDto, id);
             return Ok(toDoTaskDto);
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteToDoTask(int id)
+        [HttpDelete]
+        public async Task<IActionResult> DeleteToDoTask([FromBody] DeleteToDoTaskRequestDTO request)
         {
-            await _toDoTaskService.DeleteToDoTaskAsync(id);
+            await _toDoTaskService.DeleteToDoTaskAsync(request);
             return Ok();
         }
 

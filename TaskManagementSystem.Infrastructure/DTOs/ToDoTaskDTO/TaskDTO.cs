@@ -4,13 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TaskManagementSystem.Infrastructure.DTOs.UserDTOs
+namespace TaskManagementSystem.Infrastructure.DTOs.ToDoTaskDTOs
 {
-    public class UpdateUserDTO
+    public class TaskDTO
     {
+        public int Id { get; set; }
         public string UserName { get; set; }
         public string Mail { get; set; }
-        public int DepartmentId { get; set; }
         public string DepartmentName { get; set; }
+        public List<AssignedTaskDTO> AssignedTasks { get; set; }
     }
 }
+    
