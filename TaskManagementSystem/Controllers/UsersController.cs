@@ -30,7 +30,7 @@ namespace TaskManagementSystem.API.Controllers
             _currentUserService = currentUserService;
         }
 
-       // [HttpGet("[action]")]
+        [HttpGet("[action]")]
         public async Task<IActionResult> All()
         {
             var users = await _userService.GetAllUsersAsync();
@@ -38,7 +38,7 @@ namespace TaskManagementSystem.API.Controllers
             return Ok(users);
         }
 
-       // [HttpGet("[action]")]
+        [HttpGet("[action]")]
         public async Task<IActionResult> Detail([FromBody] GetUserByIdRequestDTO request)
         {
             var user = await _userService.GetUserByIdAsync(request);
@@ -46,7 +46,7 @@ namespace TaskManagementSystem.API.Controllers
             return Ok(user);
         }
 
-        //[HttpPost("[action]")]
+        [HttpPost("[action]")]
         public async Task<IActionResult> Create([FromBody] UserRequestDTO request)
         {
             var newUser = await _userService.AddUserAsync(request);
@@ -54,7 +54,7 @@ namespace TaskManagementSystem.API.Controllers
             return Ok(newUser);
         }
 
-        //[HttpPut("[action]")]
+        [HttpPut("[action]")]
         public async Task<IActionResult> Update([FromBody] UpdateUserRequestDTO request)
         {
             var user = await _userService.UpdateUserAsync(request);
@@ -62,14 +62,14 @@ namespace TaskManagementSystem.API.Controllers
             return Ok(user);
         }
 
-       //[HttpDelete("[action]")]
+       [HttpDelete("[action]")]
         public async Task<IActionResult> Delete([FromBody] DeleteUserRequestDTO request)
         {
             await _userService.DeleteUserAsync(request);
             return Ok();
         }
         [AllowAnonymous]
-       // [HttpPost("[action]")]
+        [HttpPost("[action]")]
         public async Task<IActionResult> Login([FromBody] LoginUserRequestDTO request)
         {
             var user = await _userService.LoginUserAsync(request);
@@ -84,7 +84,7 @@ namespace TaskManagementSystem.API.Controllers
             return Ok(new { token });
         }
 
-       // [HttpGet("[action]")]
+        [HttpGet("[action]")]
         public IActionResult CurrentUser()
         {
             var user = _currentUserService.GetCurrentUser();

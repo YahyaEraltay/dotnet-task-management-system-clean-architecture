@@ -16,14 +16,14 @@ namespace TaskManagementSystem.API.Controllers
             _departmentService = departmentService;
         }
 
-       // [HttpGet("[action]")]
+        [HttpGet("[action]")]
         public async Task<IActionResult> All()
         {
             var departments = await _departmentService.GetAllDepartmentAsync();
             return Ok(departments);
         }
 
-       // [HttpGet("[action]")]
+        [HttpGet("[action]")]
         public async Task<IActionResult> Detail([FromBody] GetDepartmentByIdRequestDTO request)
         {
             var department = await _departmentService.GetDepartmentByIdAsync(request);
@@ -32,21 +32,21 @@ namespace TaskManagementSystem.API.Controllers
         }
 
 
-       // [HttpPost("[action]")]
+        [HttpPost("[action]")]
         public async Task<IActionResult> Create([FromBody] DepartmentRequestDTO request)
         {
             var department = await _departmentService.AddDepartmentAsync(request);
             return Ok(department);
         }
 
-       // [HttpPut("[action]")]
+        [HttpPut("[action]")]
         public async Task<IActionResult> Update([FromBody] UpdateDepartmentRequestDTO request)
         {
            var department = await _departmentService.UpdateDepartmentAsync(request);
             return Ok(department);
         }
 
-       // [HttpDelete("[action]")]
+        [HttpDelete("[action]")]
         public async Task<IActionResult> Delete([FromBody] DeleteDepartmentRequestDTO request)
         {
             await _departmentService.DeleteDepartmentAsync(request);
