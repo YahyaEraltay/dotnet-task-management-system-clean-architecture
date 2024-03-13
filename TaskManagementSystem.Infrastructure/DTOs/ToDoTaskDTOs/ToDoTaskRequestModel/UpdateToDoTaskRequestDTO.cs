@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TaskManagementSystem.Infrastructure.DTOs.ToDoTaskDTOs
+namespace TaskManagementSystem.Infrastructure.DTOs.ToDoTaskDTOs.ToDoTaskRequestModel
 {
-    public class ToDoTaskDTO
+    public class UpdateToDoTaskRequestDTO
     {
+        public int Id { get; set; }
         public string ToDoTaskName { get; set; }
         public int DepartmentId { get; set; }
         public int CreaterUserId { get; set; }

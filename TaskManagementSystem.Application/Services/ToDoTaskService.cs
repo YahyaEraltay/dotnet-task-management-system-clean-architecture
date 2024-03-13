@@ -51,34 +51,23 @@ namespace TaskManagementSystem.Application.Services
             await _toDoTaskRepository.DeleteToDoTaskAsync(request.Id);
         }
 
-        public async Task<List<TaskDTO>> GetAllToDoTaskAync()
+        public async Task<List<GetAllToDoTaskResponseDTO>> GetAllToDoTaskAync()
         {
             var tasks = await _toDoTaskRepository.GetAllToDoTaskAsync();
-            var taskDTOs = new List<TaskDTO>();
+            var taskDTOs = new List<GetAllToDoTaskResponseDTO>();
 
             foreach (var task in tasks)
             {
-                var user = await _userRepository.GetUserByIdAsync(task.AssignedUserId);
-                var department = await _departmentRepository.GetDepartmentByIdAsync(task.DepartmentId);
 
-                var taskDTO = new TaskDTO
+                var taskDTO = new GetAllToDoTaskResponseDTO
                 {
-                    Id = user.Id,
-                    UserName = user.UserName,
-                    Mail = user.Mail,
-                    DepartmentName = department.DepartmentName,
-                    AssignedTasks = new List<AssignedTaskDTO>()
+                    Id = task.Id,
+                    ToDoTaskName= task.ToDoTaskName,
+                    CreaterUserName = task.CreaterUser.UserName,
+                    AssignedUserName = task.AssignedUser.UserName,
+                    AssignedUserEmail = task.AssignedUser.Mail,
+                    DepartmentName = task.Department.DepartmentName,
                 };
-
-                if (task.AssignedUserId != null)
-                {
-                    var creatorUser = await _userRepository.GetUserByIdAsync(task.CreaterUserId);
-                    taskDTO.AssignedTasks.Add(new AssignedTaskDTO
-                    {
-                        ToDoTaskName = task.ToDoTaskName,
-                        CreaterUserName = creatorUser.UserName,
-                    });
-                }
 
                 taskDTOs.Add(taskDTO);
             }
@@ -86,21 +75,48 @@ namespace TaskManagementSystem.Application.Services
             return taskDTOs;
         }
 
-        public async Task<ToDoTaskDTO> GetToDoTaskByIdAsync(int id)
+        public async Task<GetToDoTaskByIdResponseDTO> GetToDoTaskByIdAsync(GetToDoTaskByIdRequestDTO request)
         {
-            var toDoTask = await _toDoTaskRepository.GetToDoTaskByIdAsync(id);
-            var toDoTaskDTO = new ToDoTaskDTO()
+            var toDoTask = await _toDoTaskRepository.GetToDoTaskByIdAsync(request.Id);
+            var department = await _departmentRepository.GetDepartmentByIdAsync(toDoTask.DepartmentId);
+            var creatorUser = await _userRepository.GetUserByIdAsync(toDoTask.CreaterUserId);
+            var assignedUser = await _userRepository.GetUserByIdAsync(toDoTask.AssignedUserId);
+
+            var toDoTaskDTO = new GetToDoTaskByIdResponseDTO()
             {
+                Id = toDoTask.Id,
                 ToDoTaskName = toDoTask.ToDoTaskName,
-                DepartmentId = toDoTask.DepartmentId,
-                CreaterUserId = toDoTask.CreaterUserId,
+                DepartmentName = department.DepartmentName,
+                CreaterUserName = creatorUser.UserName,
+                AssignedUserName = assignedUser.UserName
             };
+
             return toDoTaskDTO;
         }
 
-        public async Task<ToDoTask> UpdateToDoTaskAsync(ToDoTaskDTO toDoTaskDto, int id)
+        public async Task<UpdateToDoTaskResponseDTO> UpdateToDoTaskAsync(UpdateToDoTaskRequestDTO request)
         {
-            return await _toDoTaskRepository.UpdateToDoTaskAsync(toDoTaskDto, id);
+            var toDoTask = await _toDoTaskRepository.GetToDoTaskByIdAsync(request.Id);
+            var department = await _departmentRepository.GetDepartmentByIdAsync(request.DepartmentId);
+            var creatorUser = await _userRepository.GetUserByIdAsync(request.CreaterUserId);
+            var assignedUser = await _userRepository.GetUserByIdAsync(request.AssignedUserId);
+
+
+            toDoTask.ToDoTaskName = request.ToDoTaskName;
+            toDoTask.DepartmentId = request.DepartmentId;
+            toDoTask.CreaterUserId = request.CreaterUserId;
+            toDoTask.AssignedUserId = request.AssignedUserId;
+
+            await _toDoTaskRepository.UpdateToDoTaskAsync(request);
+
+            return new UpdateToDoTaskResponseDTO
+            {
+                Id = toDoTask.Id,
+                ToDoTaskName = toDoTask.ToDoTaskName,
+                DepartmentName = department.DepartmentName,
+                CreaterUserName = creatorUser.UserName,
+                AssignedUserName = assignedUser.UserName,
+            };
         }
     }
 }

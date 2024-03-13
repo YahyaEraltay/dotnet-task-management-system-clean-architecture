@@ -12,10 +12,10 @@ namespace TaskManagementSystem.Application.Services
 {
     public interface IToDoTaskService
     {
-        Task<ToDoTaskDTO> GetToDoTaskByIdAsync(int id);
+        Task<GetToDoTaskByIdResponseDTO> GetToDoTaskByIdAsync(GetToDoTaskByIdRequestDTO request);
         Task<ToDoTaskResponseDTO> AddToDoTaskAsync(ToDoTaskRequestDTO request);
-        Task<ToDoTask> UpdateToDoTaskAsync(ToDoTaskDTO toDoTaskDto, int id);
+        Task<UpdateToDoTaskResponseDTO> UpdateToDoTaskAsync(UpdateToDoTaskRequestDTO request);
         Task DeleteToDoTaskAsync(DeleteToDoTaskRequestDTO request);
-        Task<List<TaskDTO>> GetAllToDoTaskAync();
+        Task<List<GetAllToDoTaskResponseDTO>> GetAllToDoTaskAync();
     }
 }

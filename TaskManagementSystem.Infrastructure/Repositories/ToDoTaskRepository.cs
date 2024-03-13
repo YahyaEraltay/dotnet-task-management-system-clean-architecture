@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TaskManagementSystem.Domain.Entities;
 using TaskManagementSystem.Infrastructure.DTOs.ToDoTaskDTOs;
+using TaskManagementSystem.Infrastructure.DTOs.ToDoTaskDTOs.ToDoTaskRequestModel;
 using TaskManagementSystem.Infrastructure.RelationalDb;
 
 namespace TaskManagementSystem.Infrastructure.Repositories
@@ -42,34 +43,38 @@ namespace TaskManagementSystem.Infrastructure.Repositories
 
         public async Task<List<ToDoTask>> GetAllToDoTaskAsync()
         {
-            return await _context.ToDoTask.ToListAsync();
+            return await _context.ToDoTask
+                                   .Include(t => t.AssignedUser)
+                                   .Include(t => t.CreaterUser)
+                                   .Include(t => t.Department)
+                                   .ToListAsync();
         }
 
         public async Task<ToDoTask> GetToDoTaskByIdAsync(int id)
         {
             var toDoTask = await _context.ToDoTask.FirstOrDefaultAsync(x => x.Id == id);
 
-            if (toDoTask == null) 
+            if (toDoTask == null)
             {
-                throw new Exception("To do task not found"); 
+                throw new Exception("To do task not found");
             }
 
             return toDoTask;
         }
 
-        public async Task<ToDoTask> UpdateToDoTaskAsync(ToDoTaskDTO toDoTaskDto, int id)
+        public async Task<ToDoTask> UpdateToDoTaskAsync(UpdateToDoTaskRequestDTO request)
         {
-            var toDoTask = await _context.ToDoTask.FirstOrDefaultAsync(x => x.Id == id);
+            var toDoTask = await _context.ToDoTask.FindAsync(request.Id);
 
             if (toDoTask == null)
             {
                 throw new Exception("Id not found");
             }
 
-            toDoTask.ToDoTaskName = toDoTaskDto.ToDoTaskName;
-            toDoTask.DepartmentId = toDoTaskDto.DepartmentId;
-            toDoTask.CreaterUserId = toDoTaskDto.CreaterUserId;
-            toDoTask.AssignedUserId = toDoTaskDto.AssignedUserId;
+            toDoTask.ToDoTaskName = request.ToDoTaskName;
+            toDoTask.DepartmentId = request.DepartmentId;
+            toDoTask.CreaterUserId = request.CreaterUserId;
+            toDoTask.AssignedUserId = request.AssignedUserId;
 
             _context.ToDoTask.Update(toDoTask);
             await _context.SaveChangesAsync();

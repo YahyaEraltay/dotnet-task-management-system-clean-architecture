@@ -5,6 +5,7 @@ using TaskManagementSystem.Application.Services;
 using TaskManagementSystem.Domain.Entities;
 using TaskManagementSystem.Infrastructure.DTOs.ToDoTaskDTOs;
 using TaskManagementSystem.Infrastructure.DTOs.ToDoTaskDTOs.ToDoTaskRequestModel;
+using TaskManagementSystem.Infrastructure.DTOs.ToDoTaskDTOs.ToDoTaskResponseModel;
 
 namespace TaskManagementSystem.API.Controllers
 {
@@ -19,40 +20,43 @@ namespace TaskManagementSystem.API.Controllers
             _toDoTaskService = toDoTaskService;
         }
 
-        [HttpGet]
-        [Route("GetAllToDoTask")]
-        public async Task<IActionResult> GetAllToDoTask()
+        //[HttpGet("[action]")]
+        public async Task<IActionResult> All()
         {
             var toDoTask = await _toDoTaskService.GetAllToDoTaskAync();
+
             return Ok(toDoTask);
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetToDoTaskById(int id)
+       // [HttpGet("[action]")]
+        public async Task<IActionResult> Detail([FromBody] GetToDoTaskByIdRequestDTO request)
         {
-            var toDoTask = await _toDoTaskService.GetToDoTaskByIdAsync(id);
+            var toDoTask = await _toDoTaskService.GetToDoTaskByIdAsync(request);
+
             return Ok(toDoTask);
         }
 
-        [HttpPost]
-        [Route("AddToDoTask")]
-        public async Task<ActionResult<ToDoTask>> AddToDoTask([FromBody] ToDoTaskRequestDTO request)
+        //[HttpPost("[action]")]      
+        public async Task<ActionResult<ToDoTask>> Create([FromBody] ToDoTaskRequestDTO request)
         {
             var newTasks = await _toDoTaskService.AddToDoTaskAsync(request);
+
             return Ok(newTasks);
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateToDoTask(ToDoTaskDTO toDoTaskDto, int id)
+       // [HttpPut("[action]")]
+        public async Task<IActionResult> Update([FromBody] UpdateToDoTaskRequestDTO request)
         {
-            await _toDoTaskService.UpdateToDoTaskAsync(toDoTaskDto, id);
-            return Ok(toDoTaskDto);
+           var toDoTask = await _toDoTaskService.UpdateToDoTaskAsync(request);
+
+            return Ok(toDoTask);
         }
 
-        [HttpDelete]
-        public async Task<IActionResult> DeleteToDoTask([FromBody] DeleteToDoTaskRequestDTO request)
+        //[HttpDelete("[action]")]
+        public async Task<IActionResult> Delete([FromBody] DeleteToDoTaskRequestDTO request)
         {
             await _toDoTaskService.DeleteToDoTaskAsync(request);
+
             return Ok();
         }
 

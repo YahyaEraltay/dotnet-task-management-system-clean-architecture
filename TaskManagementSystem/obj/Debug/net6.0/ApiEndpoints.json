@@ -75,61 +75,18 @@
   },
   {
     "ContainingType": "TaskManagementSystem.API.Controllers.ToDoTaskController",
-    "Method": "DeleteToDoTask",
-    "RelativePath": "api/ToDoTask",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "request",
-        "Type": "TaskManagementSystem.Infrastructure.DTOs.ToDoTaskDTOs.ToDoTaskRequestModel.DeleteToDoTaskRequestDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "TaskManagementSystem.API.Controllers.ToDoTaskController",
-    "Method": "GetToDoTaskById",
-    "RelativePath": "api/ToDoTask/{id}",
+    "Method": "All",
+    "RelativePath": "api/ToDoTask/All",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
     "ContainingType": "TaskManagementSystem.API.Controllers.ToDoTaskController",
-    "Method": "UpdateToDoTask",
-    "RelativePath": "api/ToDoTask/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "toDoTaskDto",
-        "Type": "TaskManagementSystem.Infrastructure.DTOs.ToDoTaskDTOs.ToDoTaskDTO",
-        "IsRequired": true
-      },
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "TaskManagementSystem.API.Controllers.ToDoTaskController",
-    "Method": "AddToDoTask",
-    "RelativePath": "api/ToDoTask/AddToDoTask",
+    "Method": "Create",
+    "RelativePath": "api/ToDoTask/Create",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -154,12 +111,50 @@
   },
   {
     "ContainingType": "TaskManagementSystem.API.Controllers.ToDoTaskController",
-    "Method": "GetAllToDoTask",
-    "RelativePath": "api/ToDoTask/GetAllToDoTask",
+    "Method": "Delete",
+    "RelativePath": "api/ToDoTask/Delete",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.ToDoTaskDTOs.ToDoTaskRequestModel.DeleteToDoTaskRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TaskManagementSystem.API.Controllers.ToDoTaskController",
+    "Method": "Detail",
+    "RelativePath": "api/ToDoTask/Detail",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.ToDoTaskDTOs.ToDoTaskRequestModel.GetToDoTaskByIdRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TaskManagementSystem.API.Controllers.ToDoTaskController",
+    "Method": "Update",
+    "RelativePath": "api/ToDoTask/Update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.ToDoTaskDTOs.ToDoTaskRequestModel.UpdateToDoTaskRequestDTO",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {

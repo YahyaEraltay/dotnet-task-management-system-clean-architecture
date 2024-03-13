@@ -72,10 +72,12 @@ namespace TaskManagementSystem.Infrastructure.Repositories
             {
                 throw new Exception("Id not found");
             }
+
             user.UserName = request.UserName;
             user.Mail = request.Mail;
             user.DepartmentId = request.DepartmentId;
 
+            _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
             return user;

@@ -72,7 +72,7 @@ namespace TaskManagementSystem.Infrastructure.Repositories
 
             department.DepartmentName = request.DepartmentName;
 
-            _context.Update(department);
+            _context.Departments.Update(department);
             await _context.SaveChangesAsync();
 
             return department;
