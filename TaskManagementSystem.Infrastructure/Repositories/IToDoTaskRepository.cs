@@ -11,10 +11,10 @@ namespace TaskManagementSystem.Infrastructure.Repositories
 {
     public interface IToDoTaskRepository
     {
-        Task<ToDoTask> GetToDoTaskByIdAsync(int id);
-        Task<ToDoTask> AddToDoTaskAsync(ToDoTask toDoTask);
-        Task<ToDoTask> UpdateToDoTaskAsync(UpdateToDoTaskRequestDTO request);
-        Task DeleteToDoTaskAsync(int id);
-        Task<List<ToDoTask>> GetAllToDoTaskAsync();
+        Task<ToDoTask> Detail(int id);
+        Task<ToDoTask> Create(ToDoTask toDoTask);
+        Task<ToDoTask> Update(UpdateToDoTaskRequestDTO request);
+        Task Delete(int id);
+        Task<List<ToDoTask>> All();
     }
 }

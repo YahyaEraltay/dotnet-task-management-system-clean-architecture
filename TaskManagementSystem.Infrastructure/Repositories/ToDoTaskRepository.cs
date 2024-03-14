@@ -20,7 +20,7 @@ namespace TaskManagementSystem.Infrastructure.Repositories
             _context = context;
         }
 
-        public async Task<ToDoTask> AddToDoTaskAsync(ToDoTask toDoTask)
+        public async Task<ToDoTask> Create(ToDoTask toDoTask)
         {
             _context.ToDoTask.Add(toDoTask);
             await _context.SaveChangesAsync();
@@ -28,7 +28,7 @@ namespace TaskManagementSystem.Infrastructure.Repositories
             return toDoTask;
         }
 
-        public async Task DeleteToDoTaskAsync(int id)
+        public async Task Delete(int id)
         {
             var toDoTask = await _context.ToDoTask.FirstOrDefaultAsync(x => x.Id == id);
 
@@ -41,7 +41,7 @@ namespace TaskManagementSystem.Infrastructure.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task<List<ToDoTask>> GetAllToDoTaskAsync()
+        public async Task<List<ToDoTask>> All()
         {
             return await _context.ToDoTask
                                    .Include(t => t.AssignedUser)
@@ -50,7 +50,7 @@ namespace TaskManagementSystem.Infrastructure.Repositories
                                    .ToListAsync();
         }
 
-        public async Task<ToDoTask> GetToDoTaskByIdAsync(int id)
+        public async Task<ToDoTask> Detail(int id)
         {
             var toDoTask = await _context.ToDoTask.FirstOrDefaultAsync(x => x.Id == id);
 
@@ -62,7 +62,7 @@ namespace TaskManagementSystem.Infrastructure.Repositories
             return toDoTask;
         }
 
-        public async Task<ToDoTask> UpdateToDoTaskAsync(UpdateToDoTaskRequestDTO request)
+        public async Task<ToDoTask> Update(UpdateToDoTaskRequestDTO request)
         {
             var toDoTask = await _context.ToDoTask.FindAsync(request.Id);
 

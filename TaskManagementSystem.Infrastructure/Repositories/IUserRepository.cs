@@ -11,11 +11,11 @@ namespace TaskManagementSystem.Infrastructure.Repositories
 {
     public interface IUserRepository
     {
-        Task<User> GetUserByIdAsync(int id);
-        Task<List<User>> GetAllUsersAsync();
-        Task<User> AddUserAsync(User user);
-        Task<User> UpdateUserAsync(UpdateUserRequestDTO request);
-        Task DeleteUserAsync(int id);
-        Task<User> GetUserByNameAsync(string mail);
+        Task<User> Detail(int id);
+        Task<List<User>> All();
+        Task<User> Create(User user);
+        Task<User> Update(UpdateUserRequestDTO request);
+        Task Delete(int id);
+        Task<User> Login(string mail);
     }
 }

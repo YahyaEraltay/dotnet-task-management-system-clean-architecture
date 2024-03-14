@@ -5,10 +5,10 @@ namespace TaskManagementSystem.Infrastructure.Repositories
 {
     public interface IDepartmentRepository
     {
-        Task<Department> GetDepartmentByIdAsync(int id);
-        Task<List<Department>> GetAllDepartmentAsync();
-        Task<Department> AddDepartmentAsync(Department department);
-        Task<Department> UpdateDepartmentAsync(UpdateDepartmentRequestDTO request);
-        Task DeleteDepartmentAsync(int id);
+        Task<Department> Detail(int id);
+        Task<List<Department>> All();
+        Task<Department> Create(Department department);
+        Task<Department> Update(UpdateDepartmentRequestDTO request);
+        Task Delete(int id);
     }
 }

@@ -6,11 +6,11 @@ namespace TaskManagementSystem.Application.Services
 {
     public interface IUserService
     {
-        Task<GetUserByIdResponseDTO> GetUserByIdAsync(GetUserByIdRequestDTO request);
-        Task<List<GetUserResponseDTO>> GetAllUsersAsync();
-        Task<UserResponseDTO> AddUserAsync(UserRequestDTO request);
-        Task<UpdateUserResponseDTO> UpdateUserAsync(UpdateUserRequestDTO request);
-        Task DeleteUserAsync(DeleteUserRequestDTO request);
-        Task<User> LoginUserAsync(LoginUserRequestDTO request);
+        Task<GetUserByIdResponseDTO> Detail(GetUserByIdRequestDTO request);
+        Task<List<GetUserResponseDTO>> All();
+        Task<UserResponseDTO> Create(UserRequestDTO request);
+        Task<UpdateUserResponseDTO> Update(UpdateUserRequestDTO request);
+        Task Delete(DeleteUserRequestDTO request);
+        Task<User> Login(LoginUserRequestDTO request);
     }
 }

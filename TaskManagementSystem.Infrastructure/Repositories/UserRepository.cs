@@ -20,14 +20,14 @@ namespace TaskManagementSystem.Infrastructure.Repositories
         {
             _context = context;
         }
-        public async Task<User> AddUserAsync(User user)
+        public async Task<User> Create(User user)
         {
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
             return user;
         }
-        public async Task DeleteUserAsync(int id)
+        public async Task Delete(int id)
         {
             var user = await _context.Users.FirstOrDefaultAsync(x => x.Id == id);
 
@@ -42,12 +42,12 @@ namespace TaskManagementSystem.Infrastructure.Repositories
             }
         }
 
-        public async Task<List<User>> GetAllUsersAsync()
+        public async Task<List<User>> All()
         {
             return await _context.Users.ToListAsync();
         }
 
-        public async Task<User> GetUserByIdAsync(int id)
+        public async Task<User> Detail(int id)
         {
             var user = await _context.Users.FirstOrDefaultAsync(x => x.Id == id);
 
@@ -59,12 +59,12 @@ namespace TaskManagementSystem.Infrastructure.Repositories
             return user;
         }
 
-        public async Task<User> GetUserByNameAsync(string mail)
+        public async Task<User> Login(string mail)
         {
             return await _context.Users.FirstOrDefaultAsync(x => x.Mail == mail);
         }
 
-        public async Task<User> UpdateUserAsync(UpdateUserRequestDTO request)
+        public async Task<User> Update(UpdateUserRequestDTO request)
         {
             var user = await _context.Users.FindAsync(request.Id);
 
@@ -77,7 +77,7 @@ namespace TaskManagementSystem.Infrastructure.Repositories
             user.Mail = request.Mail;
             user.DepartmentId = request.DepartmentId;
 
-            _context.Users.Add(user);
+            _context.Users.Update(user);
             await _context.SaveChangesAsync();
 
             return user;

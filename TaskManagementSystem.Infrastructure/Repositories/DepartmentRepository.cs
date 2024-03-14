@@ -14,7 +14,7 @@ namespace TaskManagementSystem.Infrastructure.Repositories
             _context = context;
         }
 
-        public async Task<Department> AddDepartmentAsync(Department department)
+        public async Task<Department> Create(Department department)
         {
             _context.Departments.Add(department);
             await _context.SaveChangesAsync();
@@ -22,7 +22,7 @@ namespace TaskManagementSystem.Infrastructure.Repositories
             return department;
         }
 
-        public async Task DeleteDepartmentAsync(int id)
+        public async Task Delete(int id)
         {
             var department = await _context.Departments.FirstOrDefaultAsync(x => x.Id == id);
 
@@ -37,7 +37,7 @@ namespace TaskManagementSystem.Infrastructure.Repositories
             }
         }
 
-        public async Task<List<Department>> GetAllDepartmentAsync()
+        public async Task<List<Department>> All()
         {
             var departments = await _context.Departments.ToListAsync();
 
@@ -49,7 +49,7 @@ namespace TaskManagementSystem.Infrastructure.Repositories
             throw new Exception("There is no department");
         }
 
-        public async Task<Department> GetDepartmentByIdAsync(int id)
+        public async Task<Department> Detail(int id)
         {
             var department = await _context.Departments.FirstOrDefaultAsync(x => x.Id == id);
 
@@ -61,7 +61,7 @@ namespace TaskManagementSystem.Infrastructure.Repositories
             return department;
         }
 
-        public async Task<Department> UpdateDepartmentAsync(UpdateDepartmentRequestDTO request)
+        public async Task<Department> Update(UpdateDepartmentRequestDTO request)
         {
             var department = await _context.Departments.FindAsync(request.Id);
 

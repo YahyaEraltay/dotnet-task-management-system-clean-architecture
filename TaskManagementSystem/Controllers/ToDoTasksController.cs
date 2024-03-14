@@ -23,7 +23,7 @@ namespace TaskManagementSystem.API.Controllers
         [HttpGet("[action]")]
         public async Task<IActionResult> All()
         {
-            var toDoTask = await _toDoTaskService.GetAllToDoTaskAync();
+            var toDoTask = await _toDoTaskService.All();
 
             return Ok(toDoTask);
         }
@@ -31,7 +31,7 @@ namespace TaskManagementSystem.API.Controllers
         [HttpGet("[action]")]
         public async Task<IActionResult> Detail([FromBody] GetToDoTaskByIdRequestDTO request)
         {
-            var toDoTask = await _toDoTaskService.GetToDoTaskByIdAsync(request);
+            var toDoTask = await _toDoTaskService.Detail(request);
 
             return Ok(toDoTask);
         }
@@ -39,7 +39,7 @@ namespace TaskManagementSystem.API.Controllers
         [HttpPost("[action]")]      
         public async Task<ActionResult<ToDoTask>> Create([FromBody] ToDoTaskRequestDTO request)
         {
-            var newTasks = await _toDoTaskService.AddToDoTaskAsync(request);
+            var newTasks = await _toDoTaskService.Create(request);
 
             return Ok(newTasks);
         }
@@ -47,7 +47,7 @@ namespace TaskManagementSystem.API.Controllers
         [HttpPut("[action]")]
         public async Task<IActionResult> Update([FromBody] UpdateToDoTaskRequestDTO request)
         {
-           var toDoTask = await _toDoTaskService.UpdateToDoTaskAsync(request);
+           var toDoTask = await _toDoTaskService.Update(request);
 
             return Ok(toDoTask);
         }
@@ -55,7 +55,7 @@ namespace TaskManagementSystem.API.Controllers
         [HttpDelete("[action]")]
         public async Task<IActionResult> Delete([FromBody] DeleteToDoTaskRequestDTO request)
         {
-            await _toDoTaskService.DeleteToDoTaskAsync(request);
+            await _toDoTaskService.Delete(request);
 
             return Ok();
         }

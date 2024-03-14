@@ -17,39 +17,39 @@ namespace TaskManagementSystem.API.Controllers
         }
 
         [HttpGet("[action]")]
-        public async Task<IActionResult> All()
+        public async Task<ActionResult<DepartmentResponseDTO>> All()
         {
-            var departments = await _departmentService.GetAllDepartmentAsync();
+            var departments = await _departmentService.All();
             return Ok(departments);
         }
 
         [HttpGet("[action]")]
-        public async Task<IActionResult> Detail([FromBody] GetDepartmentByIdRequestDTO request)
+        public async Task<ActionResult<GetDepartmentByIdResponseDTO>> Detail([FromBody] GetDepartmentByIdRequestDTO request)
         {
-            var department = await _departmentService.GetDepartmentByIdAsync(request);
+            var department = await _departmentService.Detail(request);
 
             return Ok(department);
         }
 
 
         [HttpPost("[action]")]
-        public async Task<IActionResult> Create([FromBody] DepartmentRequestDTO request)
+        public async Task<ActionResult<DepartmentResponseDTO>> Create([FromBody] DepartmentRequestDTO request)
         {
-            var department = await _departmentService.AddDepartmentAsync(request);
+            var department = await _departmentService.Create(request);
             return Ok(department);
         }
 
         [HttpPut("[action]")]
-        public async Task<IActionResult> Update([FromBody] UpdateDepartmentRequestDTO request)
+        public async Task<ActionResult<UpdateDepartmentResponseDTO>> Update([FromBody] UpdateDepartmentRequestDTO request)
         {
-           var department = await _departmentService.UpdateDepartmentAsync(request);
+            var department = await _departmentService.Update(request);
             return Ok(department);
         }
 
         [HttpDelete("[action]")]
         public async Task<IActionResult> Delete([FromBody] DeleteDepartmentRequestDTO request)
         {
-            await _departmentService.DeleteDepartmentAsync(request);
+            await _departmentService.Delete(request);
             return Ok();
         }
     }

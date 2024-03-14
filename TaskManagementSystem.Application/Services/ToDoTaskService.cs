@@ -24,7 +24,7 @@ namespace TaskManagementSystem.Application.Services
             _userRepository = userRepository;
         }
 
-        public async Task<ToDoTaskResponseDTO> AddToDoTaskAsync(ToDoTaskRequestDTO request)
+        public async Task<ToDoTaskResponseDTO> Create(ToDoTaskRequestDTO request)
         {
             var toDoTask = new ToDoTask()
             {
@@ -34,7 +34,7 @@ namespace TaskManagementSystem.Application.Services
                 AssignedUserId = request.AssignedUserId,
             };
 
-            await _toDoTaskRepository.AddToDoTaskAsync(toDoTask);
+            await _toDoTaskRepository.Create(toDoTask);
 
             return new ToDoTaskResponseDTO
             {
@@ -46,14 +46,14 @@ namespace TaskManagementSystem.Application.Services
             };
         }
 
-        public async Task DeleteToDoTaskAsync(DeleteToDoTaskRequestDTO request)
+        public async Task Delete(DeleteToDoTaskRequestDTO request)
         {
-            await _toDoTaskRepository.DeleteToDoTaskAsync(request.Id);
+            await _toDoTaskRepository.Delete(request.Id);
         }
 
-        public async Task<List<GetAllToDoTaskResponseDTO>> GetAllToDoTaskAync()
+        public async Task<List<GetAllToDoTaskResponseDTO>> All()
         {
-            var tasks = await _toDoTaskRepository.GetAllToDoTaskAsync();
+            var tasks = await _toDoTaskRepository.All();
             var taskDTOs = new List<GetAllToDoTaskResponseDTO>();
 
             foreach (var task in tasks)
@@ -75,12 +75,12 @@ namespace TaskManagementSystem.Application.Services
             return taskDTOs;
         }
 
-        public async Task<GetToDoTaskByIdResponseDTO> GetToDoTaskByIdAsync(GetToDoTaskByIdRequestDTO request)
+        public async Task<GetToDoTaskByIdResponseDTO> Detail(GetToDoTaskByIdRequestDTO request)
         {
-            var toDoTask = await _toDoTaskRepository.GetToDoTaskByIdAsync(request.Id);
-            var department = await _departmentRepository.GetDepartmentByIdAsync(toDoTask.DepartmentId);
-            var creatorUser = await _userRepository.GetUserByIdAsync(toDoTask.CreaterUserId);
-            var assignedUser = await _userRepository.GetUserByIdAsync(toDoTask.AssignedUserId);
+            var toDoTask = await _toDoTaskRepository.Detail(request.Id);
+            var department = await _departmentRepository.Detail(toDoTask.DepartmentId);
+            var creatorUser = await _userRepository.Detail(toDoTask.CreaterUserId);
+            var assignedUser = await _userRepository.Detail(toDoTask.AssignedUserId);
 
             var toDoTaskDTO = new GetToDoTaskByIdResponseDTO()
             {
@@ -94,12 +94,12 @@ namespace TaskManagementSystem.Application.Services
             return toDoTaskDTO;
         }
 
-        public async Task<UpdateToDoTaskResponseDTO> UpdateToDoTaskAsync(UpdateToDoTaskRequestDTO request)
+        public async Task<UpdateToDoTaskResponseDTO> Update(UpdateToDoTaskRequestDTO request)
         {
-            var toDoTask = await _toDoTaskRepository.GetToDoTaskByIdAsync(request.Id);
-            var department = await _departmentRepository.GetDepartmentByIdAsync(request.DepartmentId);
-            var creatorUser = await _userRepository.GetUserByIdAsync(request.CreaterUserId);
-            var assignedUser = await _userRepository.GetUserByIdAsync(request.AssignedUserId);
+            var toDoTask = await _toDoTaskRepository.Detail(request.Id);
+            var department = await _departmentRepository.Detail(request.DepartmentId);
+            var creatorUser = await _userRepository.Detail(request.CreaterUserId);
+            var assignedUser = await _userRepository.Detail(request.AssignedUserId);
 
 
             toDoTask.ToDoTaskName = request.ToDoTaskName;
@@ -107,7 +107,7 @@ namespace TaskManagementSystem.Application.Services
             toDoTask.CreaterUserId = request.CreaterUserId;
             toDoTask.AssignedUserId = request.AssignedUserId;
 
-            await _toDoTaskRepository.UpdateToDoTaskAsync(request);
+            await _toDoTaskRepository.Update(request);
 
             return new UpdateToDoTaskResponseDTO
             {

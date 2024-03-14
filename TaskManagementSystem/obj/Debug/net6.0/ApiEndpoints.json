@@ -1,24 +1,28 @@
 [
   {
-    "ContainingType": "TaskManagementSystem.API.Controllers.DepartmentController",
-    "Method": "GetDepartmentById",
-    "RelativePath": "api/Department",
+    "ContainingType": "TaskManagementSystem.API.Controllers.DepartmentsController",
+    "Method": "All",
+    "RelativePath": "api/Departments/All",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [
+    "Parameters": [],
+    "ReturnTypes": [
       {
-        "Name": "request",
-        "Type": "TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentRequestModel.GetDepartmentByIdRequestDTO",
-        "IsRequired": true
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentResponseModel.DepartmentResponseDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
       }
-    ],
-    "ReturnTypes": []
+    ]
   },
   {
-    "ContainingType": "TaskManagementSystem.API.Controllers.DepartmentController",
-    "Method": "AddDepartment",
-    "RelativePath": "api/Department",
+    "ContainingType": "TaskManagementSystem.API.Controllers.DepartmentsController",
+    "Method": "Create",
+    "RelativePath": "api/Departments/Create",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -29,28 +33,22 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "TaskManagementSystem.API.Controllers.DepartmentController",
-    "Method": "UpdateDepartment",
-    "RelativePath": "api/Department",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
+    "ReturnTypes": [
       {
-        "Name": "request",
-        "Type": "TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentRequestModel.UpdateDepartmentRequestDTO",
-        "IsRequired": true
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentResponseModel.DepartmentResponseDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
       }
-    ],
-    "ReturnTypes": []
+    ]
   },
   {
-    "ContainingType": "TaskManagementSystem.API.Controllers.DepartmentController",
-    "Method": "DeleteDepartment",
-    "RelativePath": "api/Department",
+    "ContainingType": "TaskManagementSystem.API.Controllers.DepartmentsController",
+    "Method": "Delete",
+    "RelativePath": "api/Departments/Delete",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -64,14 +62,56 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "TaskManagementSystem.API.Controllers.DepartmentController",
-    "Method": "GetAllDepartment",
-    "RelativePath": "api/Department/GetAllDepartment",
+    "ContainingType": "TaskManagementSystem.API.Controllers.DepartmentsController",
+    "Method": "Detail",
+    "RelativePath": "api/Departments/Detail",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentRequestModel.GetDepartmentByIdRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentResponseModel.GetDepartmentByIdResponseDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "TaskManagementSystem.API.Controllers.DepartmentsController",
+    "Method": "Update",
+    "RelativePath": "api/Departments/Update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentRequestModel.UpdateDepartmentRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentResponseModel.UpdateDepartmentResponseDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "TaskManagementSystem.API.Controllers.ToDoTaskController",
@@ -158,25 +198,19 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "TaskManagementSystem.API.Controllers.UserController",
-    "Method": "GetUserById",
-    "RelativePath": "api/User",
+    "ContainingType": "TaskManagementSystem.API.Controllers.UsersController",
+    "Method": "All",
+    "RelativePath": "api/Users/All",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [
-      {
-        "Name": "request",
-        "Type": "TaskManagementSystem.Infrastructure.DTOs.UserDTOs.UserRequestModel.GetUserByIdRequestDTO",
-        "IsRequired": true
-      }
-    ],
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "TaskManagementSystem.API.Controllers.UserController",
-    "Method": "AddUser",
-    "RelativePath": "api/User",
+    "ContainingType": "TaskManagementSystem.API.Controllers.UsersController",
+    "Method": "Create",
+    "RelativePath": "api/Users/Create",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -190,25 +224,19 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "TaskManagementSystem.API.Controllers.UserController",
-    "Method": "UpdateUser",
-    "RelativePath": "api/User",
-    "HttpMethod": "PUT",
+    "ContainingType": "TaskManagementSystem.API.Controllers.UsersController",
+    "Method": "CurrentUser",
+    "RelativePath": "api/Users/CurrentUser",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [
-      {
-        "Name": "request",
-        "Type": "TaskManagementSystem.Infrastructure.DTOs.UserDTOs.UserRequestModel.UpdateUserRequestDTO",
-        "IsRequired": true
-      }
-    ],
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "TaskManagementSystem.API.Controllers.UserController",
-    "Method": "DeleteUser",
-    "RelativePath": "api/User",
+    "ContainingType": "TaskManagementSystem.API.Controllers.UsersController",
+    "Method": "Delete",
+    "RelativePath": "api/Users/Delete",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -222,29 +250,25 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "TaskManagementSystem.API.Controllers.UserController",
-    "Method": "GetAllUser",
-    "RelativePath": "api/User/GetAllUsers",
+    "ContainingType": "TaskManagementSystem.API.Controllers.UsersController",
+    "Method": "Detail",
+    "RelativePath": "api/Users/Detail",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.UserDTOs.UserRequestModel.GetUserByIdRequestDTO",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "TaskManagementSystem.API.Controllers.UserController",
-    "Method": "GetCurrentUser",
-    "RelativePath": "api/User/GetCurrrentUser",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "TaskManagementSystem.API.Controllers.UserController",
+    "ContainingType": "TaskManagementSystem.API.Controllers.UsersController",
     "Method": "Login",
-    "RelativePath": "api/User/Login",
+    "RelativePath": "api/Users/Login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -252,6 +276,22 @@
       {
         "Name": "request",
         "Type": "TaskManagementSystem.Infrastructure.DTOs.UserDTOs.UserRequestModel.LoginUserRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TaskManagementSystem.API.Controllers.UsersController",
+    "Method": "Update",
+    "RelativePath": "api/Users/Update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.UserDTOs.UserRequestModel.UpdateUserRequestDTO",
         "IsRequired": true
       }
     ],

@@ -33,7 +33,7 @@ namespace TaskManagementSystem.API.Controllers
         [HttpGet("[action]")]
         public async Task<IActionResult> All()
         {
-            var users = await _userService.GetAllUsersAsync();
+            var users = await _userService.All();
 
             return Ok(users);
         }
@@ -41,7 +41,7 @@ namespace TaskManagementSystem.API.Controllers
         [HttpGet("[action]")]
         public async Task<IActionResult> Detail([FromBody] GetUserByIdRequestDTO request)
         {
-            var user = await _userService.GetUserByIdAsync(request);
+            var user = await _userService.Detail(request);
 
             return Ok(user);
         }
@@ -49,7 +49,7 @@ namespace TaskManagementSystem.API.Controllers
         [HttpPost("[action]")]
         public async Task<IActionResult> Create([FromBody] UserRequestDTO request)
         {
-            var newUser = await _userService.AddUserAsync(request);
+            var newUser = await _userService.Create(request);
 
             return Ok(newUser);
         }
@@ -57,22 +57,23 @@ namespace TaskManagementSystem.API.Controllers
         [HttpPut("[action]")]
         public async Task<IActionResult> Update([FromBody] UpdateUserRequestDTO request)
         {
-            var user = await _userService.UpdateUserAsync(request);
+            var user = await _userService.Update(request);
 
             return Ok(user);
         }
 
-       [HttpDelete("[action]")]
+        [HttpDelete("[action]")]
         public async Task<IActionResult> Delete([FromBody] DeleteUserRequestDTO request)
         {
-            await _userService.DeleteUserAsync(request);
+            await _userService.Delete(request);
             return Ok();
         }
+
         [AllowAnonymous]
         [HttpPost("[action]")]
         public async Task<IActionResult> Login([FromBody] LoginUserRequestDTO request)
         {
-            var user = await _userService.LoginUserAsync(request);
+            var user = await _userService.Login(request);
 
             if (user == null)
             {
@@ -91,6 +92,5 @@ namespace TaskManagementSystem.API.Controllers
 
             return Ok(new { user });
         }
-
     }
 }
