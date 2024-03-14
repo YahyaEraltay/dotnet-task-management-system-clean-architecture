@@ -28,17 +28,14 @@ namespace TaskManagementSystem.Infrastructure.Repositories
             return toDoTask;
         }
 
-        public async Task Delete(int id)
+        public async Task<ToDoTask> Delete(ToDoTask toDoTask)
         {
-            var toDoTask = await _context.ToDoTask.FirstOrDefaultAsync(x => x.Id == id);
-
-            if (toDoTask == null)
-            {
-                throw new Exception("Id not found");
-            }
+            var deletedToDoTask = await _context.ToDoTask.FirstOrDefaultAsync(x => x.Id == toDoTask.Id);
 
             _context.ToDoTask.Remove(toDoTask);
             await _context.SaveChangesAsync();
+
+            return deletedToDoTask;
         }
 
         public async Task<List<ToDoTask>> All()
@@ -52,19 +49,22 @@ namespace TaskManagementSystem.Infrastructure.Repositories
 
         public async Task<ToDoTask> Detail(int id)
         {
-            var toDoTask = await _context.ToDoTask.FirstOrDefaultAsync(x => x.Id == id);
-
-            if (toDoTask == null)
-            {
-                throw new Exception("To do task not found");
-            }
+            var toDoTask = await _context.ToDoTask
+                                         .Include(x => x.AssignedUser)
+                                         .Include(x => x.CreaterUser)
+                                         .Include(x => x.Department)
+                                         .FirstOrDefaultAsync(x => x.Id == id);
 
             return toDoTask;
         }
 
         public async Task<ToDoTask> Update(UpdateToDoTaskRequestDTO request)
         {
-            var toDoTask = await _context.ToDoTask.FindAsync(request.Id);
+            var toDoTask = await _context.ToDoTask
+                                         .Include(x => x.AssignedUser)
+                                         .Include(x => x.CreaterUser)
+                                         .Include(x => x.Department)
+                                         .FirstOrDefaultAsync(x => x.Id == request.Id);
 
             if (toDoTask == null)
             {

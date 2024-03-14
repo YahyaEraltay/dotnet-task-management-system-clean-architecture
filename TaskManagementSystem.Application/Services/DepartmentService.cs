@@ -69,6 +69,7 @@ namespace TaskManagementSystem.Application.Services
         public async Task<GetDepartmentResponseDTO> Detail(GetDepartmentIdRequestDTO request)
         {
             var department = await _departmentRepository.Detail(request.Id);
+
             if (department != null)
             {
                 return new GetDepartmentResponseDTO
@@ -88,15 +89,21 @@ namespace TaskManagementSystem.Application.Services
         {
             var department = await _departmentRepository.Detail(request.Id);
 
-            department.DepartmentName = request.DepartmentName;
-
-            await _departmentRepository.Update(request);
-
-            return new UpdateDepartmentResponseDTO()
+            if (department != null)
             {
-                Id = department.Id,
-                DepartmentName = department.DepartmentName
-            };
+                department.DepartmentName = request.DepartmentName;
+                await _departmentRepository.Update(request);
+
+                return new UpdateDepartmentResponseDTO()
+                {
+                    Id = department.Id,
+                    DepartmentName = department.DepartmentName
+                };
+            }
+            else
+            {
+                throw new Exception("Department Not Found");
+            }
         }
     }
 }

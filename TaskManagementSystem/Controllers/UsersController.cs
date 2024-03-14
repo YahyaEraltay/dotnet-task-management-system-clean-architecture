@@ -64,10 +64,10 @@ namespace TaskManagementSystem.API.Controllers
         }
 
         [HttpDelete("[action]")]
-        public async Task<IActionResult> Delete([FromBody] GetUserIdRequestDTO request)
+        public async Task<ActionResult<DeleteUserResponseDTO>> Delete([FromBody] GetUserIdRequestDTO request)
         {
-            await _userService.Delete(request);
-            return Ok();
+           var response = await _userService.Delete(request);
+            return Ok(response);
         }
 
         [AllowAnonymous]

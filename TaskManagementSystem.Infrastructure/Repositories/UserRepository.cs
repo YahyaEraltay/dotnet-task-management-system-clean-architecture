@@ -27,34 +27,28 @@ namespace TaskManagementSystem.Infrastructure.Repositories
 
             return user;
         }
-        public async Task Delete(int id)
+        public async Task<User> Delete(User user)
         {
-            var user = await _context.Users.FirstOrDefaultAsync(x => x.Id == id);
+            var deletedUser = await _context.Users.FirstOrDefaultAsync(x => x.Id == user.Id);
 
-            if (user != null)
-            {
-                _context.Users.Remove(user);
-                await _context.SaveChangesAsync();
-            }
-            else
-            {
-                throw new Exception("Task with the specified ID could not be found.");
-            }
+            _context.Users.Remove(user);
+            await _context.SaveChangesAsync();
+
+            return deletedUser;
         }
 
         public async Task<List<User>> All()
         {
-            return await _context.Users.ToListAsync();
+            return await _context.Users
+                                 .Include(x => x.Department)
+                                 .ToListAsync();
         }
 
         public async Task<User> Detail(int id)
         {
-            var user = await _context.Users.FirstOrDefaultAsync(x => x.Id == id);
-
-            if (user == null)
-            {
-                throw new Exception("User Not Found");
-            }
+            var user = await _context.Users
+                                     .Include(x => x.Department)
+                                     .FirstOrDefaultAsync(x => x.Id == id);
 
             return user;
         }
@@ -66,7 +60,9 @@ namespace TaskManagementSystem.Infrastructure.Repositories
 
         public async Task<User> Update(UpdateUserRequestDTO request)
         {
-            var user = await _context.Users.FindAsync(request.Id);
+            var user = await _context.Users
+                                     .Include(x=>x.Department)
+                                     .FirstOrDefaultAsync(x => x.Id == request.Id);
 
             if (user == null)
             {

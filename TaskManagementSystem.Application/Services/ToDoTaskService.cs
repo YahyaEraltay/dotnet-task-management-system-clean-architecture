@@ -46,9 +46,24 @@ namespace TaskManagementSystem.Application.Services
             };
         }
 
-        public async Task Delete(GetToDoTaskIdRequestDTO request)
+        public async Task<DeleteToDoTaskResponseDTO> Delete(GetToDoTaskIdRequestDTO request)
         {
-            await _toDoTaskRepository.Delete(request.Id);
+            var toDoTask = await _toDoTaskRepository.Detail(request.Id);
+            var response = new DeleteToDoTaskResponseDTO();
+
+            if (toDoTask != null)
+            {
+                await _toDoTaskRepository.Delete(toDoTask);
+                response.IsDeleted = true;
+                response.Message = "Task deleted";
+            }
+            else
+            {
+                response.IsDeleted = false;
+                response.Message = "Task could not be deleted";
+            }
+
+            return response;
         }
 
         public async Task<List<GetToDoTaskResponseDTO>> All()
@@ -62,7 +77,7 @@ namespace TaskManagementSystem.Application.Services
                 var taskDTO = new GetToDoTaskResponseDTO
                 {
                     Id = task.Id,
-                    ToDoTaskName= task.ToDoTaskName,
+                    ToDoTaskName = task.ToDoTaskName,
                     CreaterUserName = task.CreaterUser.UserName,
                     AssignedUserName = task.AssignedUser.UserName,
                     AssignedUserEmail = task.AssignedUser.Mail,
@@ -78,18 +93,15 @@ namespace TaskManagementSystem.Application.Services
         public async Task<GetToDoTaskResponseDTO> Detail(GetToDoTaskIdRequestDTO request)
         {
             var toDoTask = await _toDoTaskRepository.Detail(request.Id);
-            var department = await _departmentRepository.Detail(toDoTask.DepartmentId);
-            var creatorUser = await _userRepository.Detail(toDoTask.CreaterUserId);
-            var assignedUser = await _userRepository.Detail(toDoTask.AssignedUserId);
 
             var toDoTaskDTO = new GetToDoTaskResponseDTO()
             {
                 Id = toDoTask.Id,
                 ToDoTaskName = toDoTask.ToDoTaskName,
-                DepartmentName = department.DepartmentName,
-                CreaterUserName = creatorUser.UserName,
-                AssignedUserName = assignedUser.UserName,
-                AssignedUserEmail = assignedUser.Mail
+                DepartmentName = toDoTask.Department.DepartmentName,
+                CreaterUserName = toDoTask.CreaterUser.UserName,
+                AssignedUserName = toDoTask.AssignedUser.UserName,
+                AssignedUserEmail = toDoTask.AssignedUser.Mail
             };
 
             return toDoTaskDTO;
@@ -98,10 +110,6 @@ namespace TaskManagementSystem.Application.Services
         public async Task<UpdateToDoTaskResponseDTO> Update(UpdateToDoTaskRequestDTO request)
         {
             var toDoTask = await _toDoTaskRepository.Detail(request.Id);
-            var department = await _departmentRepository.Detail(request.DepartmentId);
-            var creatorUser = await _userRepository.Detail(request.CreaterUserId);
-            var assignedUser = await _userRepository.Detail(request.AssignedUserId);
-
 
             toDoTask.ToDoTaskName = request.ToDoTaskName;
             toDoTask.DepartmentId = request.DepartmentId;
@@ -114,9 +122,9 @@ namespace TaskManagementSystem.Application.Services
             {
                 Id = toDoTask.Id,
                 ToDoTaskName = toDoTask.ToDoTaskName,
-                DepartmentName = department.DepartmentName,
-                CreaterUserName = creatorUser.UserName,
-                AssignedUserName = assignedUser.UserName,
+                DepartmentName = toDoTask.Department.DepartmentName,
+                CreaterUserName = toDoTask.CreaterUser.UserName,
+                AssignedUserName = toDoTask.AssignedUser.UserName,
             };
         }
     }

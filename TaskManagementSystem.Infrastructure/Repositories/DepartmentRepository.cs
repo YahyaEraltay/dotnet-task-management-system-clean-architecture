@@ -24,7 +24,7 @@ namespace TaskManagementSystem.Infrastructure.Repositories
 
         public async Task<Department> Delete(Department department)
         {
-            var deletedDepartment = await _context.Departments.FindAsync(department.Id);
+            var deletedDepartment = await _context.Departments.FirstOrDefaultAsync(x => x.Id == department.Id);
 
             _context.Departments.Remove(department);
             await _context.SaveChangesAsync();
@@ -48,22 +48,12 @@ namespace TaskManagementSystem.Infrastructure.Repositories
         {
             var department = await _context.Departments.FirstOrDefaultAsync(x => x.Id == id);
 
-            //if (department == null)
-            //{
-            //    throw new Exception("Department Not Found");
-            //}
-
             return department;
         }
 
         public async Task<Department> Update(UpdateDepartmentRequestDTO request)
         {
-            var department = await _context.Departments.FindAsync(request.Id);
-
-            if (department == null)
-            {
-                throw new Exception("Department Not Found");
-            }
+            var department = await _context.Departments.FirstOrDefaultAsync(x => x.Id == request.Id);
 
             department.DepartmentName = request.DepartmentName;
 
@@ -71,7 +61,6 @@ namespace TaskManagementSystem.Infrastructure.Repositories
             await _context.SaveChangesAsync();
 
             return department;
-
         }
     }
 }

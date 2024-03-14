@@ -14,7 +14,7 @@ namespace TaskManagementSystem.Infrastructure.Repositories
         Task<ToDoTask> Detail(int id);
         Task<ToDoTask> Create(ToDoTask toDoTask);
         Task<ToDoTask> Update(UpdateToDoTaskRequestDTO request);
-        Task Delete(int id);
+        Task<ToDoTask> Delete(ToDoTask toDoTask);
         Task<List<ToDoTask>> All();
     }
 }

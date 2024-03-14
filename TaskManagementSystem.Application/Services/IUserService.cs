@@ -10,7 +10,7 @@ namespace TaskManagementSystem.Application.Services
         Task<List<GetUserResponseDTO>> All();
         Task<CreateUserResponseDTO> Create(CreateUserRequestDTO request);
         Task<UpdateUserResponseDTO> Update(UpdateUserRequestDTO request);
-        Task Delete(GetUserIdRequestDTO request);
+        Task<DeleteUserResponseDTO> Delete(GetUserIdRequestDTO request);
         Task<User> Login(LoginUserRequestDTO request);
     }
 }

@@ -53,11 +53,11 @@ namespace TaskManagementSystem.API.Controllers
         }
 
         [HttpDelete("[action]")]
-        public async Task<IActionResult> Delete([FromBody] GetToDoTaskIdRequestDTO request)
+        public async Task<ActionResult<DeleteToDoTaskResponseDTO>> Delete([FromBody] GetToDoTaskIdRequestDTO request)
         {
-            await _toDoTaskService.Delete(request);
+           var response = await _toDoTaskService.Delete(request);
 
-            return Ok();
+            return Ok(response);
         }
     }
 }

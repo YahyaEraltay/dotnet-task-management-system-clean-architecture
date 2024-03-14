@@ -36,23 +36,38 @@ namespace TaskManagementSystem.Application.Services
             };
         }
 
-        public async Task Delete(GetUserIdRequestDTO request)
+        public async Task<DeleteUserResponseDTO> Delete(GetUserIdRequestDTO request)
         {
-            await _userRepository.Delete(request.Id);
+            var user = await _userRepository.Detail(request.Id);
+            var response = new DeleteUserResponseDTO();
+
+            if (user != null)
+            {
+                await _userRepository.Delete(user);
+                response.IsDeleted = true;
+                response.Message = "User deleted";
+            }
+            else
+            {
+                response.IsDeleted = false;
+                response.Message = "User could not be deleted";
+            }
+
+            return response;
         }
         public async Task<List<GetUserResponseDTO>> All()
         {
             var users = await _userRepository.All();
             var response = new List<GetUserResponseDTO>();
+
             foreach (var user in users)
             {
-                var department = await _departmentRepository.Detail(user.DepartmentId);
                 response.Add(new GetUserResponseDTO()
                 {
                     Id = user.Id,
                     UserName = user.UserName,
                     Mail = user.Mail,
-                    DepartmentName = department.DepartmentName,
+                    DepartmentName = user.Department.DepartmentName
                 });
             }
             return response;
@@ -60,15 +75,21 @@ namespace TaskManagementSystem.Application.Services
         public async Task<GetUserResponseDTO> Detail(GetUserIdRequestDTO request)
         {
             var user = await _userRepository.Detail(request.Id);
-            var department = await _departmentRepository.Detail(user.DepartmentId);
-            var userDTO = new GetUserResponseDTO
+            if (user != null)
             {
-                Id = user.Id,
-                UserName = user.UserName,
-                Mail = user.Mail,
-                DepartmentName = department.DepartmentName,
-            };
-            return userDTO;
+                var userDTO = new GetUserResponseDTO
+                {
+                    Id = user.Id,
+                    UserName = user.UserName,
+                    Mail = user.Mail,
+                    DepartmentName = user.Department.DepartmentName
+                };
+                return userDTO;
+            }
+            else
+            {
+                throw new Exception("User could not be found");
+            }
         }
 
         public async Task<User> Login(LoginUserRequestDTO request)
@@ -78,7 +99,6 @@ namespace TaskManagementSystem.Application.Services
         public async Task<UpdateUserResponseDTO> Update(UpdateUserRequestDTO request)
         {
             var user = await _userRepository.Detail(request.Id);
-            var department = await _departmentRepository.Detail(request.DepartmentId);
 
             user.UserName = request.UserName;
             user.Mail = request.Mail;
@@ -91,7 +111,7 @@ namespace TaskManagementSystem.Application.Services
                 Id = user.Id,
                 UserName = user.UserName,
                 Mail = user.Mail,
-                DepartmentName = department.DepartmentName
+                DepartmentName = user.Department.DepartmentName
             };
         }
     }
