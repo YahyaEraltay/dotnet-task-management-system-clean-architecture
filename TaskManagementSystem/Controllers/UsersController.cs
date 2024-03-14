@@ -11,6 +11,7 @@ using TaskManagementSystem.Application.Services;
 using TaskManagementSystem.Domain.Entities;
 using TaskManagementSystem.Infrastructure.DTOs.UserDTOs;
 using TaskManagementSystem.Infrastructure.DTOs.UserDTOs.UserRequestModel;
+using TaskManagementSystem.Infrastructure.DTOs.UserDTOs.UserResponseModel;
 
 namespace TaskManagementSystem.API.Controllers
 {
@@ -31,7 +32,7 @@ namespace TaskManagementSystem.API.Controllers
         }
 
         [HttpGet("[action]")]
-        public async Task<IActionResult> All()
+        public async Task<ActionResult<GetUserResponseDTO>> All()
         {
             var users = await _userService.All();
 
@@ -39,7 +40,7 @@ namespace TaskManagementSystem.API.Controllers
         }
 
         [HttpGet("[action]")]
-        public async Task<IActionResult> Detail([FromBody] GetUserByIdRequestDTO request)
+        public async Task<ActionResult<GetUserResponseDTO>> Detail([FromBody] GetUserIdRequestDTO request)
         {
             var user = await _userService.Detail(request);
 
@@ -47,7 +48,7 @@ namespace TaskManagementSystem.API.Controllers
         }
 
         [HttpPost("[action]")]
-        public async Task<IActionResult> Create([FromBody] UserRequestDTO request)
+        public async Task<ActionResult<CreateUserResponseDTO>> Create([FromBody] CreateUserRequestDTO request)
         {
             var newUser = await _userService.Create(request);
 
@@ -55,7 +56,7 @@ namespace TaskManagementSystem.API.Controllers
         }
 
         [HttpPut("[action]")]
-        public async Task<IActionResult> Update([FromBody] UpdateUserRequestDTO request)
+        public async Task<ActionResult<UpdateUserResponseDTO>> Update([FromBody] UpdateUserRequestDTO request)
         {
             var user = await _userService.Update(request);
 
@@ -63,7 +64,7 @@ namespace TaskManagementSystem.API.Controllers
         }
 
         [HttpDelete("[action]")]
-        public async Task<IActionResult> Delete([FromBody] DeleteUserRequestDTO request)
+        public async Task<IActionResult> Delete([FromBody] GetUserIdRequestDTO request)
         {
             await _userService.Delete(request);
             return Ok();

@@ -22,19 +22,14 @@ namespace TaskManagementSystem.Infrastructure.Repositories
             return department;
         }
 
-        public async Task Delete(int id)
+        public async Task<Department> Delete(Department department)
         {
-            var department = await _context.Departments.FirstOrDefaultAsync(x => x.Id == id);
+            var deletedDepartment = await _context.Departments.FindAsync(department.Id);
 
-            if (department != null)
-            {
-                _context.Departments.Remove(department);
-                await _context.SaveChangesAsync();
-            }
-            else
-            {
-                throw new Exception("Task with the specified ID could not be found.");
-            }
+            _context.Departments.Remove(department);
+            await _context.SaveChangesAsync();
+
+            return deletedDepartment;
         }
 
         public async Task<List<Department>> All()
@@ -53,10 +48,10 @@ namespace TaskManagementSystem.Infrastructure.Repositories
         {
             var department = await _context.Departments.FirstOrDefaultAsync(x => x.Id == id);
 
-            if (department == null)
-            {
-                throw new Exception("Department Not Found");
-            }
+            //if (department == null)
+            //{
+            //    throw new Exception("Department Not Found");
+            //}
 
             return department;
         }

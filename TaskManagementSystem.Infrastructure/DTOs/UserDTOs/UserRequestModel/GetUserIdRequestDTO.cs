@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TaskManagementSystem.Infrastructure.DTOs.UserDTOs.UserRequestModel
 {
-    public class DeleteUserRequestDTO
+    public class GetUserIdRequestDTO
     {
         public int Id { get; set; }
     }

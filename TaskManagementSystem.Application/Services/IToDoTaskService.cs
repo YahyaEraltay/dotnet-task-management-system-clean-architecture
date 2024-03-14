@@ -12,10 +12,10 @@ namespace TaskManagementSystem.Application.Services
 {
     public interface IToDoTaskService
     {
-        Task<GetToDoTaskByIdResponseDTO> Detail(GetToDoTaskByIdRequestDTO request);
-        Task<ToDoTaskResponseDTO> Create(ToDoTaskRequestDTO request);
+        Task<GetToDoTaskResponseDTO> Detail(GetToDoTaskIdRequestDTO request);
+        Task<CreateToDoTaskResponseDTO> Create(CreateToDoTaskRequestDTO request);
         Task<UpdateToDoTaskResponseDTO> Update(UpdateToDoTaskRequestDTO request);
-        Task Delete(DeleteToDoTaskRequestDTO request);
-        Task<List<GetAllToDoTaskResponseDTO>> All();
+        Task Delete(GetToDoTaskIdRequestDTO request);
+        Task<List<GetToDoTaskResponseDTO>> All();
     }
 }

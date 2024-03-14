@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TaskManagementSystem.Infrastructure.DTOs.ToDoTaskDTOs.ToDoTaskRequestModel
+namespace TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentRequestModel
 {
-    public class GetToDoTaskByIdRequestDTO
+    public class GetDepartmentIdRequestDTO
     {
         public int Id { get; set; }
     }

@@ -17,14 +17,14 @@ namespace TaskManagementSystem.API.Controllers
         }
 
         [HttpGet("[action]")]
-        public async Task<ActionResult<DepartmentResponseDTO>> All()
+        public async Task<ActionResult<GetDepartmentResponseDTO>> All()
         {
             var departments = await _departmentService.All();
             return Ok(departments);
         }
 
         [HttpGet("[action]")]
-        public async Task<ActionResult<GetDepartmentByIdResponseDTO>> Detail([FromBody] GetDepartmentByIdRequestDTO request)
+        public async Task<ActionResult<GetDepartmentResponseDTO>> Detail([FromBody] GetDepartmentIdRequestDTO request)
         {
             var department = await _departmentService.Detail(request);
 
@@ -33,7 +33,7 @@ namespace TaskManagementSystem.API.Controllers
 
 
         [HttpPost("[action]")]
-        public async Task<ActionResult<DepartmentResponseDTO>> Create([FromBody] DepartmentRequestDTO request)
+        public async Task<ActionResult<CreateDepartmentResponseDTO>> Create([FromBody] CreateDepartmentRequestDTO request)
         {
             var department = await _departmentService.Create(request);
             return Ok(department);
@@ -47,10 +47,10 @@ namespace TaskManagementSystem.API.Controllers
         }
 
         [HttpDelete("[action]")]
-        public async Task<IActionResult> Delete([FromBody] DeleteDepartmentRequestDTO request)
+        public async Task<ActionResult<DeleteDepartmentResponseDTO>> Delete([FromBody] GetDepartmentIdRequestDTO request)
         {
-            await _departmentService.Delete(request);
-            return Ok();
+            var response = await _departmentService.Delete(request);
+            return Ok(response);
         }
     }
 }

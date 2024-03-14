@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace TaskManagementSystem.Infrastructure.DTOs.UserDTOs.UserRequestModel
 {
-    public class GetUserByIdRequestDTO
+    public class CreateUserRequestDTO
     {
-        public int Id { get; set; }
+        public string UserName { get; set; }
+        public string Mail { get; set; }
+        public int DepartmentId { get; set; }
     }
 }

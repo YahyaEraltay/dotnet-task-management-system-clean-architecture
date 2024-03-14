@@ -9,6 +9,6 @@ namespace TaskManagementSystem.Infrastructure.Repositories
         Task<List<Department>> All();
         Task<Department> Create(Department department);
         Task<Department> Update(UpdateDepartmentRequestDTO request);
-        Task Delete(int id);
+        Task<Department> Delete(Department department);
     }
 }

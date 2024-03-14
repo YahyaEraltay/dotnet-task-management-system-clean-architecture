@@ -21,7 +21,7 @@ namespace TaskManagementSystem.API.Controllers
         }
 
         [HttpGet("[action]")]
-        public async Task<IActionResult> All()
+        public async Task<ActionResult<GetToDoTaskResponseDTO>> All()
         {
             var toDoTask = await _toDoTaskService.All();
 
@@ -29,15 +29,15 @@ namespace TaskManagementSystem.API.Controllers
         }
 
         [HttpGet("[action]")]
-        public async Task<IActionResult> Detail([FromBody] GetToDoTaskByIdRequestDTO request)
+        public async Task<ActionResult<GetToDoTaskResponseDTO>> Detail([FromBody] GetToDoTaskIdRequestDTO request)
         {
             var toDoTask = await _toDoTaskService.Detail(request);
 
             return Ok(toDoTask);
         }
 
-        [HttpPost("[action]")]      
-        public async Task<ActionResult<ToDoTask>> Create([FromBody] ToDoTaskRequestDTO request)
+        [HttpPost("[action]")]
+        public async Task<ActionResult<CreateToDoTaskResponseDTO>> Create([FromBody] CreateToDoTaskRequestDTO request)
         {
             var newTasks = await _toDoTaskService.Create(request);
 
@@ -45,21 +45,19 @@ namespace TaskManagementSystem.API.Controllers
         }
 
         [HttpPut("[action]")]
-        public async Task<IActionResult> Update([FromBody] UpdateToDoTaskRequestDTO request)
+        public async Task<ActionResult<UpdateToDoTaskResponseDTO>> Update([FromBody] UpdateToDoTaskRequestDTO request)
         {
-           var toDoTask = await _toDoTaskService.Update(request);
+            var toDoTask = await _toDoTaskService.Update(request);
 
             return Ok(toDoTask);
         }
 
         [HttpDelete("[action]")]
-        public async Task<IActionResult> Delete([FromBody] DeleteToDoTaskRequestDTO request)
+        public async Task<IActionResult> Delete([FromBody] GetToDoTaskIdRequestDTO request)
         {
             await _toDoTaskService.Delete(request);
 
             return Ok();
         }
-
-
     }
 }

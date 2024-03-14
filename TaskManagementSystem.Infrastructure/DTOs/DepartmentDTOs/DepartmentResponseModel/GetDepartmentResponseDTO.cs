@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentResponseModel
 {
-    public class GetDepartmentByIdResponseDTO
+    public class GetDepartmentResponseDTO
     {
         public int Id { get; set; }
         public string DepartmentName { get; set; }

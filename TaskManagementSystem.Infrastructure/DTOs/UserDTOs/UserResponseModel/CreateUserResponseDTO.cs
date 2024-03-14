@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TaskManagementSystem.Infrastructure.DTOs.UserDTOs.UserResponseModel
 {
-    public class UserResponseDTO
+    public class CreateUserResponseDTO
     {
         public int Id { get; set; }
         public string UserName { get; set; }

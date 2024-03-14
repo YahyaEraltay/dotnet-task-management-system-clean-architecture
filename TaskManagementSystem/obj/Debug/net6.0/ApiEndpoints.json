@@ -9,7 +9,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentResponseModel.DepartmentResponseDTO",
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentResponseModel.GetDepartmentResponseDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -29,13 +29,13 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentRequestModel.DepartmentRequestDTO",
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentRequestModel.CreateDepartmentRequestDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentResponseModel.DepartmentResponseDTO",
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentResponseModel.CreateDepartmentResponseDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -55,11 +55,21 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentRequestModel.DeleteDepartmentRequestDTO",
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentRequestModel.GetDepartmentIdRequestDTO",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentResponseModel.DeleteDepartmentResponseDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "TaskManagementSystem.API.Controllers.DepartmentsController",
@@ -71,13 +81,13 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentRequestModel.GetDepartmentByIdRequestDTO",
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentRequestModel.GetDepartmentIdRequestDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentResponseModel.GetDepartmentByIdResponseDTO",
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentResponseModel.GetDepartmentResponseDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -121,7 +131,17 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.ToDoTaskDTOs.ToDoTaskResponseModel.GetToDoTaskResponseDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "TaskManagementSystem.API.Controllers.ToDoTaskController",
@@ -133,13 +153,13 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "TaskManagementSystem.Infrastructure.DTOs.ToDoTaskDTOs.ToDoTaskRequestModel.ToDoTaskRequestDTO",
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.ToDoTaskDTOs.ToDoTaskRequestModel.CreateToDoTaskRequestDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "TaskManagementSystem.Domain.Entities.ToDoTask",
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.ToDoTaskDTOs.ToDoTaskResponseModel.CreateToDoTaskResponseDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -159,7 +179,7 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "TaskManagementSystem.Infrastructure.DTOs.ToDoTaskDTOs.ToDoTaskRequestModel.DeleteToDoTaskRequestDTO",
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.ToDoTaskDTOs.ToDoTaskRequestModel.GetToDoTaskIdRequestDTO",
         "IsRequired": true
       }
     ],
@@ -175,11 +195,21 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "TaskManagementSystem.Infrastructure.DTOs.ToDoTaskDTOs.ToDoTaskRequestModel.GetToDoTaskByIdRequestDTO",
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.ToDoTaskDTOs.ToDoTaskRequestModel.GetToDoTaskIdRequestDTO",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.ToDoTaskDTOs.ToDoTaskResponseModel.GetToDoTaskResponseDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "TaskManagementSystem.API.Controllers.ToDoTaskController",
@@ -195,7 +225,17 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.ToDoTaskDTOs.ToDoTaskResponseModel.UpdateToDoTaskResponseDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "TaskManagementSystem.API.Controllers.UsersController",
@@ -205,7 +245,17 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.UserDTOs.UserResponseModel.GetUserResponseDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "TaskManagementSystem.API.Controllers.UsersController",
@@ -217,11 +267,21 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "TaskManagementSystem.Infrastructure.DTOs.UserDTOs.UserRequestModel.UserRequestDTO",
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.UserDTOs.UserRequestModel.CreateUserRequestDTO",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.UserDTOs.UserResponseModel.CreateUserResponseDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "TaskManagementSystem.API.Controllers.UsersController",
@@ -243,7 +303,7 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "TaskManagementSystem.Infrastructure.DTOs.UserDTOs.UserRequestModel.DeleteUserRequestDTO",
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.UserDTOs.UserRequestModel.GetUserIdRequestDTO",
         "IsRequired": true
       }
     ],
@@ -259,11 +319,21 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "TaskManagementSystem.Infrastructure.DTOs.UserDTOs.UserRequestModel.GetUserByIdRequestDTO",
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.UserDTOs.UserRequestModel.GetUserIdRequestDTO",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.UserDTOs.UserResponseModel.GetUserResponseDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "TaskManagementSystem.API.Controllers.UsersController",
@@ -295,6 +365,16 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.UserDTOs.UserResponseModel.UpdateUserResponseDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   }
 ]

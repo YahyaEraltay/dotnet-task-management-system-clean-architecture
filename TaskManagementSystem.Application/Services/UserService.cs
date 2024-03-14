@@ -16,7 +16,7 @@ namespace TaskManagementSystem.Application.Services
             _departmentRepository = departmentRepository;
         }
 
-        public async Task<UserResponseDTO> Create(UserRequestDTO request)
+        public async Task<CreateUserResponseDTO> Create(CreateUserRequestDTO request)
         {
             var user = new User()
             {
@@ -27,7 +27,7 @@ namespace TaskManagementSystem.Application.Services
 
             await _userRepository.Create(user);
 
-            return new UserResponseDTO
+            return new CreateUserResponseDTO
             {
                 Id = user.Id,
                 UserName = user.UserName,
@@ -36,7 +36,7 @@ namespace TaskManagementSystem.Application.Services
             };
         }
 
-        public async Task Delete(DeleteUserRequestDTO request)
+        public async Task Delete(GetUserIdRequestDTO request)
         {
             await _userRepository.Delete(request.Id);
         }
@@ -57,11 +57,11 @@ namespace TaskManagementSystem.Application.Services
             }
             return response;
         }
-        public async Task<GetUserByIdResponseDTO> Detail(GetUserByIdRequestDTO request)
+        public async Task<GetUserResponseDTO> Detail(GetUserIdRequestDTO request)
         {
             var user = await _userRepository.Detail(request.Id);
             var department = await _departmentRepository.Detail(user.DepartmentId);
-            var userDTO = new GetUserByIdResponseDTO
+            var userDTO = new GetUserResponseDTO
             {
                 Id = user.Id,
                 UserName = user.UserName,

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentResponseModel
 {
-    public class DepartmentResponseDTO
+    public class DeleteDepartmentResponseDTO
     {
-        public int Id { get; set; }
-        public string DepartmentName { get; set; }
+        public bool IsDeleted { get; set; }
+        public string Message { get; set; }
     }
 }
