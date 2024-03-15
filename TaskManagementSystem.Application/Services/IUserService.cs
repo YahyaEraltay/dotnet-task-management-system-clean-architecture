@@ -6,10 +6,10 @@ namespace TaskManagementSystem.Application.Services
 {
     public interface IUserService
     {
-        Task<GetUserResponseDTO> Detail(GetUserIdRequestDTO request);
-        Task<List<GetUserResponseDTO>> All();
+        Task<UserResponseDTO> Detail(GetUserIdRequestDTO request);
+        Task<List<UserResponseDTO>> All();
         Task<CreateUserResponseDTO> Create(CreateUserRequestDTO request);
-        Task<UpdateUserResponseDTO> Update(UpdateUserRequestDTO request);
+        Task<UserResponseDTO> Update(UpdateUserRequestDTO request);
         Task<DeleteUserResponseDTO> Delete(GetUserIdRequestDTO request);
         Task<User> Login(LoginUserRequestDTO request);
     }

@@ -40,8 +40,10 @@ namespace TaskManagementSystem.Infrastructure.Repositories
             {
                 return departments;
             }
-
-            throw new Exception("There is no department");
+            else
+            {
+                throw new Exception("There is no department");
+            }
         }
 
         public async Task<Department> Detail(int id)

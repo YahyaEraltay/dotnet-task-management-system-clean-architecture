@@ -40,11 +40,19 @@ namespace TaskManagementSystem.Infrastructure.Repositories
 
         public async Task<List<ToDoTask>> All()
         {
-            return await _context.ToDoTask
+            var toDoTasks = await _context.ToDoTask
                                    .Include(t => t.AssignedUser)
                                    .Include(t => t.CreaterUser)
                                    .Include(t => t.Department)
                                    .ToListAsync();
+            if (toDoTasks != null)
+            {
+                return toDoTasks;
+            }
+            else
+            {
+                throw new Exception("There is no task");
+            }
         }
 
         public async Task<ToDoTask> Detail(int id)

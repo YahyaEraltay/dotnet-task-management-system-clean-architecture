@@ -13,7 +13,7 @@ namespace TaskManagementSystem.Application.Services
             _departmentRepository = departmentRepository;
         }
 
-        public async Task<CreateDepartmentResponseDTO> Create(CreateDepartmentRequestDTO request)
+        public async Task<DepartmentResponseDTO> Create(CreateDepartmentRequestDTO request)
         {
             var department = new Department
             {
@@ -22,7 +22,7 @@ namespace TaskManagementSystem.Application.Services
 
             await _departmentRepository.Create(department);
 
-            return new CreateDepartmentResponseDTO
+            return new DepartmentResponseDTO
             {
                 Id = department.Id,
                 DepartmentName = department.DepartmentName
@@ -48,15 +48,15 @@ namespace TaskManagementSystem.Application.Services
             return response;
         }
 
-        public async Task<List<GetDepartmentResponseDTO>> All()
+        public async Task<List<DepartmentResponseDTO>> All()
         {
             var departments = await _departmentRepository.All();
 
-            var response = new List<GetDepartmentResponseDTO>();
+            var response = new List<DepartmentResponseDTO>();
 
             foreach (var department in departments)
             {
-                response.Add(new GetDepartmentResponseDTO()
+                response.Add(new DepartmentResponseDTO()
                 {
                     Id = department.Id,
                     DepartmentName = department.DepartmentName
@@ -66,13 +66,13 @@ namespace TaskManagementSystem.Application.Services
             return response;
         }
 
-        public async Task<GetDepartmentResponseDTO> Detail(GetDepartmentIdRequestDTO request)
+        public async Task<DepartmentResponseDTO> Detail(GetDepartmentIdRequestDTO request)
         {
             var department = await _departmentRepository.Detail(request.Id);
 
             if (department != null)
             {
-                return new GetDepartmentResponseDTO
+                return new DepartmentResponseDTO
                 {
                     Id = department.Id,
                     DepartmentName = department.DepartmentName
@@ -80,12 +80,12 @@ namespace TaskManagementSystem.Application.Services
             }
             else
             {
-                throw new Exception("Department could not be found");
+                throw new Exception("Department not found");
             }
 
         }
 
-        public async Task<UpdateDepartmentResponseDTO> Update(UpdateDepartmentRequestDTO request)
+        public async Task<DepartmentResponseDTO> Update(UpdateDepartmentRequestDTO request)
         {
             var department = await _departmentRepository.Detail(request.Id);
 
@@ -94,7 +94,7 @@ namespace TaskManagementSystem.Application.Services
                 department.DepartmentName = request.DepartmentName;
                 await _departmentRepository.Update(request);
 
-                return new UpdateDepartmentResponseDTO()
+                return new DepartmentResponseDTO()
                 {
                     Id = department.Id,
                     DepartmentName = department.DepartmentName

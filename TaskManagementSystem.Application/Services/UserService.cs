@@ -8,12 +8,10 @@ namespace TaskManagementSystem.Application.Services
     public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
-        private readonly IDepartmentRepository _departmentRepository;
 
-        public UserService(IUserRepository userRepository, IDepartmentRepository departmentRepository)
+        public UserService(IUserRepository userRepository)
         {
             _userRepository = userRepository;
-            _departmentRepository = departmentRepository;
         }
 
         public async Task<CreateUserResponseDTO> Create(CreateUserRequestDTO request)
@@ -55,14 +53,14 @@ namespace TaskManagementSystem.Application.Services
 
             return response;
         }
-        public async Task<List<GetUserResponseDTO>> All()
+        public async Task<List<UserResponseDTO>> All()
         {
             var users = await _userRepository.All();
-            var response = new List<GetUserResponseDTO>();
+            var response = new List<UserResponseDTO>();
 
             foreach (var user in users)
             {
-                response.Add(new GetUserResponseDTO()
+                response.Add(new UserResponseDTO()
                 {
                     Id = user.Id,
                     UserName = user.UserName,
@@ -72,12 +70,12 @@ namespace TaskManagementSystem.Application.Services
             }
             return response;
         }
-        public async Task<GetUserResponseDTO> Detail(GetUserIdRequestDTO request)
+        public async Task<UserResponseDTO> Detail(GetUserIdRequestDTO request)
         {
             var user = await _userRepository.Detail(request.Id);
             if (user != null)
             {
-                var userDTO = new GetUserResponseDTO
+                var userDTO = new UserResponseDTO
                 {
                     Id = user.Id,
                     UserName = user.UserName,
@@ -88,7 +86,7 @@ namespace TaskManagementSystem.Application.Services
             }
             else
             {
-                throw new Exception("User could not be found");
+                throw new Exception("User not found");
             }
         }
 
@@ -96,23 +94,30 @@ namespace TaskManagementSystem.Application.Services
         {
             return await _userRepository.Login(request.Mail);
         }
-        public async Task<UpdateUserResponseDTO> Update(UpdateUserRequestDTO request)
+        public async Task<UserResponseDTO> Update(UpdateUserRequestDTO request)
         {
             var user = await _userRepository.Detail(request.Id);
 
-            user.UserName = request.UserName;
-            user.Mail = request.Mail;
-            user.DepartmentId = request.DepartmentId;
-
-            await _userRepository.Update(request);
-
-            return new UpdateUserResponseDTO
+            if (user != null)
             {
-                Id = user.Id,
-                UserName = user.UserName,
-                Mail = user.Mail,
-                DepartmentName = user.Department.DepartmentName
-            };
+                user.UserName = request.UserName;
+                user.Mail = request.Mail;
+                user.DepartmentId = request.DepartmentId;
+
+                await _userRepository.Update(request);
+
+                return new UserResponseDTO
+                {
+                    Id = user.Id,
+                    UserName = user.UserName,
+                    Mail = user.Mail,
+                    DepartmentName = user.Department.DepartmentName
+                };
+            }
+            else
+            {
+                throw new Exception("User not found");
+            }
         }
     }
 }

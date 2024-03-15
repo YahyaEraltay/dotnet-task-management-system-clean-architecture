@@ -9,7 +9,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentResponseModel.GetDepartmentResponseDTO",
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentResponseModel.DepartmentResponseDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -35,7 +35,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentResponseModel.CreateDepartmentResponseDTO",
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentResponseModel.DepartmentResponseDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -87,7 +87,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentResponseModel.GetDepartmentResponseDTO",
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentResponseModel.DepartmentResponseDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -113,7 +113,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentResponseModel.UpdateDepartmentResponseDTO",
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.DepartmentDTOs.DepartmentResponseModel.DepartmentResponseDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -183,7 +183,17 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.ToDoTaskDTOs.ToDoTaskResponseModel.DeleteToDoTaskResponseDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "TaskManagementSystem.API.Controllers.ToDoTaskController",
@@ -247,7 +257,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "TaskManagementSystem.Infrastructure.DTOs.UserDTOs.UserResponseModel.GetUserResponseDTO",
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.UserDTOs.UserResponseModel.UserResponseDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -307,7 +317,17 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.UserDTOs.UserResponseModel.DeleteUserResponseDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "TaskManagementSystem.API.Controllers.UsersController",
@@ -325,7 +345,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "TaskManagementSystem.Infrastructure.DTOs.UserDTOs.UserResponseModel.GetUserResponseDTO",
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.UserDTOs.UserResponseModel.UserResponseDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -367,7 +387,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "TaskManagementSystem.Infrastructure.DTOs.UserDTOs.UserResponseModel.UpdateUserResponseDTO",
+        "Type": "TaskManagementSystem.Infrastructure.DTOs.UserDTOs.UserResponseModel.UserResponseDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",

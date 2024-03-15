@@ -39,9 +39,17 @@ namespace TaskManagementSystem.Infrastructure.Repositories
 
         public async Task<List<User>> All()
         {
-            return await _context.Users
+            var users = await _context.Users
                                  .Include(x => x.Department)
                                  .ToListAsync();
+            if (users!=null)
+            {
+                return users;
+            }
+            else
+            {
+                throw new Exception("There is no user");
+            }
         }
 
         public async Task<User> Detail(int id)
@@ -61,13 +69,8 @@ namespace TaskManagementSystem.Infrastructure.Repositories
         public async Task<User> Update(UpdateUserRequestDTO request)
         {
             var user = await _context.Users
-                                     .Include(x=>x.Department)
+                                     .Include(x => x.Department)
                                      .FirstOrDefaultAsync(x => x.Id == request.Id);
-
-            if (user == null)
-            {
-                throw new Exception("Id not found");
-            }
 
             user.UserName = request.UserName;
             user.Mail = request.Mail;

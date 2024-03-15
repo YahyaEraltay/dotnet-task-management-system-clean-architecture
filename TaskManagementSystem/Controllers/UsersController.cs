@@ -32,7 +32,7 @@ namespace TaskManagementSystem.API.Controllers
         }
 
         [HttpGet("[action]")]
-        public async Task<ActionResult<GetUserResponseDTO>> All()
+        public async Task<ActionResult<UserResponseDTO>> All()
         {
             var users = await _userService.All();
 
@@ -40,7 +40,7 @@ namespace TaskManagementSystem.API.Controllers
         }
 
         [HttpGet("[action]")]
-        public async Task<ActionResult<GetUserResponseDTO>> Detail([FromBody] GetUserIdRequestDTO request)
+        public async Task<ActionResult<UserResponseDTO>> Detail([FromBody] GetUserIdRequestDTO request)
         {
             var user = await _userService.Detail(request);
 
@@ -56,7 +56,7 @@ namespace TaskManagementSystem.API.Controllers
         }
 
         [HttpPut("[action]")]
-        public async Task<ActionResult<UpdateUserResponseDTO>> Update([FromBody] UpdateUserRequestDTO request)
+        public async Task<ActionResult<UserResponseDTO>> Update([FromBody] UpdateUserRequestDTO request)
         {
             var user = await _userService.Update(request);
 
@@ -66,7 +66,8 @@ namespace TaskManagementSystem.API.Controllers
         [HttpDelete("[action]")]
         public async Task<ActionResult<DeleteUserResponseDTO>> Delete([FromBody] GetUserIdRequestDTO request)
         {
-           var response = await _userService.Delete(request);
+            var response = await _userService.Delete(request);
+
             return Ok(response);
         }
 
