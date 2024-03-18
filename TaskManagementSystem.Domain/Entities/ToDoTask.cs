@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TaskManagementSystem.Domain.Entities
+﻿namespace TaskManagementSystem.Domain.Entities
 {
     public class ToDoTask
     {
@@ -18,6 +12,14 @@ namespace TaskManagementSystem.Domain.Entities
         public int CreaterUserId { get; set; }
         public int AssignedUserId { get; set; }
         public User AssignedUser { get; set; }
+        public ToDoTaskStatus Status { get; set; }
+
+        public enum ToDoTaskStatus
+        {
+            Pending,
+            Completed,
+            Denied
+        }
     }
 }
 

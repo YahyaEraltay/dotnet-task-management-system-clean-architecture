@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static TaskManagementSystem.Domain.Entities.ToDoTask;
 
 namespace TaskManagementSystem.Infrastructure.DTOs.ToDoTaskDTOs.ToDoTaskRequestModel
 {
@@ -13,5 +14,6 @@ namespace TaskManagementSystem.Infrastructure.DTOs.ToDoTaskDTOs.ToDoTaskRequestM
         public int DepartmentId { get; set; }
         public int CreaterUserId { get; set; }
         public int AssignedUserId { get; set; }
+        public ToDoTaskStatus Status { get; set; }
     }
 }

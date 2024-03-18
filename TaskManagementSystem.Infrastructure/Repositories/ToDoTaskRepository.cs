@@ -83,6 +83,7 @@ namespace TaskManagementSystem.Infrastructure.Repositories
             toDoTask.DepartmentId = request.DepartmentId;
             toDoTask.CreaterUserId = request.CreaterUserId;
             toDoTask.AssignedUserId = request.AssignedUserId;
+            toDoTask.Status = request.Status;
 
             _context.ToDoTask.Update(toDoTask);
             await _context.SaveChangesAsync();

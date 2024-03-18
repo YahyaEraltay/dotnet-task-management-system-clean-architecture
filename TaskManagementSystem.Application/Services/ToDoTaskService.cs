@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TaskManagementSystem.Domain.Entities;
-using TaskManagementSystem.Infrastructure.DTOs.ToDoTaskDTOs;
+﻿using TaskManagementSystem.Domain.Entities;
 using TaskManagementSystem.Infrastructure.DTOs.ToDoTaskDTOs.ToDoTaskRequestModel;
 using TaskManagementSystem.Infrastructure.DTOs.ToDoTaskDTOs.ToDoTaskResponseModel;
 using TaskManagementSystem.Infrastructure.Repositories;
@@ -28,6 +22,7 @@ namespace TaskManagementSystem.Application.Services
                 DepartmentId = request.DepartmentId,
                 CreaterUserId = request.CreaterUserId,
                 AssignedUserId = request.AssignedUserId,
+                Status = request.Status,
             };
 
             await _toDoTaskRepository.Create(toDoTask);
@@ -39,6 +34,7 @@ namespace TaskManagementSystem.Application.Services
                 DepartmentId = toDoTask.DepartmentId,
                 CreaterUserId = toDoTask.CreaterUserId,
                 AssignedUserId = toDoTask.AssignedUserId,
+                Status = toDoTask.Status,
             };
         }
 
@@ -69,7 +65,6 @@ namespace TaskManagementSystem.Application.Services
 
             foreach (var task in tasks)
             {
-
                 var taskDTO = new GetToDoTaskResponseDTO
                 {
                     Id = task.Id,
@@ -78,6 +73,7 @@ namespace TaskManagementSystem.Application.Services
                     AssignedUserName = task.AssignedUser.UserName,
                     AssignedUserEmail = task.AssignedUser.Mail,
                     DepartmentName = task.Department.DepartmentName,
+                    Status = task.Status,
                 };
 
                 taskDTOs.Add(taskDTO);
@@ -99,7 +95,8 @@ namespace TaskManagementSystem.Application.Services
                     DepartmentName = toDoTask.Department.DepartmentName,
                     CreaterUserName = toDoTask.CreaterUser.UserName,
                     AssignedUserName = toDoTask.AssignedUser.UserName,
-                    AssignedUserEmail = toDoTask.AssignedUser.Mail
+                    AssignedUserEmail = toDoTask.AssignedUser.Mail,
+                    Status = toDoTask.Status,
                 };
 
                 return toDoTaskDTO;
@@ -120,6 +117,7 @@ namespace TaskManagementSystem.Application.Services
                 toDoTask.DepartmentId = request.DepartmentId;
                 toDoTask.CreaterUserId = request.CreaterUserId;
                 toDoTask.AssignedUserId = request.AssignedUserId;
+                toDoTask.Status = request.Status;
 
                 await _toDoTaskRepository.Update(request);
 
@@ -130,6 +128,7 @@ namespace TaskManagementSystem.Application.Services
                     DepartmentName = toDoTask.Department.DepartmentName,
                     CreaterUserName = toDoTask.CreaterUser.UserName,
                     AssignedUserName = toDoTask.AssignedUser.UserName,
+                    Status = toDoTask.Status,
                 };
             }
             else

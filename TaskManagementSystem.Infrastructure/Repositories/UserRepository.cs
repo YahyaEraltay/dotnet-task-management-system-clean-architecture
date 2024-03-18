@@ -15,7 +15,6 @@ namespace TaskManagementSystem.Infrastructure.Repositories
     {
         private readonly ApplicationDbContext _context;
 
-
         public UserRepository(ApplicationDbContext context)
         {
             _context = context;
