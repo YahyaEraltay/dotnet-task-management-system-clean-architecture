@@ -41,7 +41,7 @@ namespace TaskManagementSystem.Infrastructure.Repositories
             var users = await _context.Users
                                  .Include(x => x.Department)
                                  .ToListAsync();
-            if (users!=null)
+            if (users != null)
             {
                 return users;
             }
@@ -63,6 +63,14 @@ namespace TaskManagementSystem.Infrastructure.Repositories
         public async Task<User> Login(string mail)
         {
             return await _context.Users.FirstOrDefaultAsync(x => x.Mail == mail);
+        }
+
+        public async Task<User> CurrentUser(string email)
+        {
+            var currentUser = await _context.Users
+                                            .Include(x => x.Department)
+                                            .FirstOrDefaultAsync(x=>x.Mail == email);
+            return currentUser;
         }
 
         public async Task<User> Update(UpdateUserRequestDTO request)

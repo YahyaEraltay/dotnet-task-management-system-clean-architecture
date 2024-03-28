@@ -41,10 +41,10 @@ namespace TaskManagementSystem.Infrastructure.Repositories
         public async Task<List<ToDoTask>> All()
         {
             var toDoTasks = await _context.ToDoTask
-                                   .Include(t => t.AssignedUser)
-                                   .Include(t => t.CreaterUser)
-                                   .Include(t => t.Department)
-                                   .ToListAsync();
+                                          .Include(t => t.AssignedUser)
+                                          .Include(t => t.CreaterUser)
+                                          .Include(t => t.Department)
+                                          .ToListAsync();
             if (toDoTasks != null)
             {
                 return toDoTasks;

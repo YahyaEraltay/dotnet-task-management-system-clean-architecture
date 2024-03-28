@@ -79,7 +79,7 @@ namespace TaskManagementSystem.API.Controllers
 
             if (user == null)
             {
-                return Unauthorized(new { message = "Invalid username" });
+                return Unauthorized(new { message = "Invalid email" });
             }
 
             var token = _generateJwtToken.GenerateToken(user);
@@ -88,9 +88,9 @@ namespace TaskManagementSystem.API.Controllers
         }
 
         [HttpGet("[action]")]
-        public IActionResult CurrentUser()
+        public async Task<ActionResult<UserResponseDTO>> CurrentUser()
         {
-            var user = _currentUserService.GetCurrentUser();
+            var user = await _currentUserService.GetCurrentUser();
 
             return Ok(new { user });
         }

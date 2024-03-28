@@ -17,5 +17,6 @@ namespace TaskManagementSystem.Infrastructure.Repositories
         Task<User> Update(UpdateUserRequestDTO request);
         Task<User> Delete(User user);
         Task<User> Login(string mail);
+        Task<User> CurrentUser(string email);
     }
 }

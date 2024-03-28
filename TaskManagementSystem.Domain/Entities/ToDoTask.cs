@@ -16,9 +16,9 @@
 
         public enum ToDoTaskStatus
         {
-            Pending,
-            Completed,
-            Denied
+            Pending = 0,
+            Completed = 1,
+            Denied = 2
         }
     }
 }

@@ -22,7 +22,7 @@ namespace TaskManagementSystem.Application.Services
                 DepartmentId = request.DepartmentId,
                 CreaterUserId = request.CreaterUserId,
                 AssignedUserId = request.AssignedUserId,
-                Status = request.Status,
+                Status = request.Status = 0,
             };
 
             await _toDoTaskRepository.Create(toDoTask);

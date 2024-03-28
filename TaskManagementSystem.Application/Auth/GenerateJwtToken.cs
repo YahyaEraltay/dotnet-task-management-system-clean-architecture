@@ -18,7 +18,6 @@ namespace TaskManagementSystem.Application.Auth
 
         public string GenerateToken(User user)
         {
-
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_configuration["Jwt:Key"]);
 
@@ -34,9 +33,8 @@ namespace TaskManagementSystem.Application.Auth
             {
                 Subject = new ClaimsIdentity(new[]
                 {
-                    new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                    new Claim(ClaimTypes.Name, user.Mail)
-                }),
+            new Claim(ClaimTypes.Email, user.Mail)
+        }),
                 Expires = DateTime.UtcNow.AddHours(1),
                 Audience = _configuration["Jwt:Audience"],
                 Issuer = _configuration["Jwt:Issuer"],
@@ -45,5 +43,6 @@ namespace TaskManagementSystem.Application.Auth
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);
         }
+
     }
 }
