@@ -1,0 +1,690 @@
+{
+	"info": {
+		"_postman_id": "a2648bd7-615c-4c9a-8d6d-fb60cdc54765",
+		"name": "TaskManagementSystem",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32995018"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "All",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyIiwidW5pcXVlX25hbWUiOiJ5YWh5YUBvdXRsb29rLmNvbSIsIm5iZiI6MTcxMDI0NTQzMiwiZXhwIjoxNzEwMjQ5MDMyLCJpYXQiOjE3MTAyNDU0MzIsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NjIyNDEiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjYyMjQxIn0.DVrGGFVBaL8mUvNps5TAREgXwZs-IIvjCXUjp8Yk6eA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:62241/api/Users/All",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "62241",
+							"path": [
+								"api",
+								"Users",
+								"All"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyIiwidW5pcXVlX25hbWUiOiJ5YWh5YUBvdXRsb29rLmNvbSIsIm5iZiI6MTcxMDI0NTQzMiwiZXhwIjoxNzEwMjQ5MDMyLCJpYXQiOjE3MTAyNDU0MzIsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NjIyNDEiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjYyMjQxIn0.DVrGGFVBaL8mUvNps5TAREgXwZs-IIvjCXUjp8Yk6eA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:62241/api/Users/Detail",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "62241",
+							"path": [
+								"api",
+								"Users",
+								"Detail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CurrentUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxMDA5IiwidW5pcXVlX25hbWUiOiJ1c2VydGVzdEBnbWFpbC5jb20iLCJuYmYiOjE3MTA4MzY1MTEsImV4cCI6MTcxMDg0MDExMSwiaWF0IjoxNzEwODM2NTExLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjYyMjQxIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo2MjI0MSJ9.WGs9LMPv3BVOLjDIuSPXglYgpOc2mCs157RQLhiE-3I",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:62241/api/Users/CurrentUser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "62241",
+							"path": [
+								"api",
+								"Users",
+								"CurrentUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyIiwidW5pcXVlX25hbWUiOiJ5YWh5YUBvdXRsb29rLmNvbSIsIm5iZiI6MTcxMDI0NTQzMiwiZXhwIjoxNzEwMjQ5MDMyLCJpYXQiOjE3MTAyNDU0MzIsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NjIyNDEiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjYyMjQxIn0.DVrGGFVBaL8mUvNps5TAREgXwZs-IIvjCXUjp8Yk6eA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"userName\": \"string\",\r\n  \"mail\": \"string\",\r\n  \"departmentId\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:62241/api/Users/Update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "62241",
+							"path": [
+								"api",
+								"Users",
+								"Update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyIiwidW5pcXVlX25hbWUiOiJ5YWh5YUBvdXRsb29rLmNvbSIsIm5iZiI6MTcxMDI0NTQzMiwiZXhwIjoxNzEwMjQ5MDMyLCJpYXQiOjE3MTAyNDU0MzIsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NjIyNDEiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjYyMjQxIn0.DVrGGFVBaL8mUvNps5TAREgXwZs-IIvjCXUjp8Yk6eA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:62241/api/Users/Delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "62241",
+							"path": [
+								"api",
+								"Users",
+								"Delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyIiwidW5pcXVlX25hbWUiOiJ5YWh5YUBvdXRsb29rLmNvbSIsIm5iZiI6MTcxMDI0NTQzMiwiZXhwIjoxNzEwMjQ5MDMyLCJpYXQiOjE3MTAyNDU0MzIsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NjIyNDEiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjYyMjQxIn0.DVrGGFVBaL8mUvNps5TAREgXwZs-IIvjCXUjp8Yk6eA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userName\": \"string\",\r\n  \"mail\": \"string\",\r\n  \"departmentId\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:62241/api/Users/Create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "62241",
+							"path": [
+								"api",
+								"Users",
+								"Create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyIiwidW5pcXVlX25hbWUiOiJ5YWh5YUBvdXRsb29rLmNvbSIsIm5iZiI6MTcxMDI0NTQzMiwiZXhwIjoxNzEwMjQ5MDMyLCJpYXQiOjE3MTAyNDU0MzIsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NjIyNDEiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjYyMjQxIn0.DVrGGFVBaL8mUvNps5TAREgXwZs-IIvjCXUjp8Yk6eA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"mail\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:62241/api/Users/Login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "62241",
+							"path": [
+								"api",
+								"Users",
+								"Login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Department",
+			"item": [
+				{
+					"name": "All",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyIiwidW5pcXVlX25hbWUiOiJZYWh5YSBFcmFsdGF5IiwibmJmIjoxNzEwMTU2MjA0LCJleHAiOjE3MTAxNTk4MDQsImlhdCI6MTcxMDE1NjIwNCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo2MjI0MSIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NjIyNDEifQ.fTJ4zJxevJYlRh43vSHROyYzxzk96BxZhvdsxL7Pwu0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:62241/api/Departments/All",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "62241",
+							"path": [
+								"api",
+								"Departments",
+								"All"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyIiwidW5pcXVlX25hbWUiOiJZYWh5YSBFcmFsdGF5IiwibmJmIjoxNzEwMTU2MjA0LCJleHAiOjE3MTAxNTk4MDQsImlhdCI6MTcxMDE1NjIwNCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo2MjI0MSIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NjIyNDEifQ.fTJ4zJxevJYlRh43vSHROyYzxzk96BxZhvdsxL7Pwu0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:62241/api/Departments/Detail",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "62241",
+							"path": [
+								"api",
+								"Departments",
+								"Detail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyIiwidW5pcXVlX25hbWUiOiJZYWh5YSBFcmFsdGF5IiwibmJmIjoxNzEwMTU2MjA0LCJleHAiOjE3MTAxNTk4MDQsImlhdCI6MTcxMDE1NjIwNCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo2MjI0MSIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NjIyNDEifQ.fTJ4zJxevJYlRh43vSHROyYzxzk96BxZhvdsxL7Pwu0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"departmentName\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:62241/api/Departments/Update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "62241",
+							"path": [
+								"api",
+								"Departments",
+								"Update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyIiwidW5pcXVlX25hbWUiOiJZYWh5YSBFcmFsdGF5IiwibmJmIjoxNzEwMTU2MjA0LCJleHAiOjE3MTAxNTk4MDQsImlhdCI6MTcxMDE1NjIwNCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo2MjI0MSIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NjIyNDEifQ.fTJ4zJxevJYlRh43vSHROyYzxzk96BxZhvdsxL7Pwu0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:62241/api/Departments/Delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "62241",
+							"path": [
+								"api",
+								"Departments",
+								"Delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyIiwidW5pcXVlX25hbWUiOiJZYWh5YSBFcmFsdGF5IiwibmJmIjoxNzEwMTU2MjA0LCJleHAiOjE3MTAxNTk4MDQsImlhdCI6MTcxMDE1NjIwNCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo2MjI0MSIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NjIyNDEifQ.fTJ4zJxevJYlRh43vSHROyYzxzk96BxZhvdsxL7Pwu0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"departmentName\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:62241/api/Departments/Create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "62241",
+							"path": [
+								"api",
+								"Departments",
+								"Create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ToDoTask",
+			"item": [
+				{
+					"name": "All",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyIiwidW5pcXVlX25hbWUiOiJ5YWh5YUBvdXRsb29rLmNvbSIsIm5iZiI6MTcxMDI0NTQzMiwiZXhwIjoxNzEwMjQ5MDMyLCJpYXQiOjE3MTAyNDU0MzIsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NjIyNDEiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjYyMjQxIn0.DVrGGFVBaL8mUvNps5TAREgXwZs-IIvjCXUjp8Yk6eA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:62241/api/ToDoTask/All",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "62241",
+							"path": [
+								"api",
+								"ToDoTask",
+								"All"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyIiwidW5pcXVlX25hbWUiOiJ5YWh5YUBvdXRsb29rLmNvbSIsIm5iZiI6MTcxMDI0NTQzMiwiZXhwIjoxNzEwMjQ5MDMyLCJpYXQiOjE3MTAyNDU0MzIsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NjIyNDEiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjYyMjQxIn0.DVrGGFVBaL8mUvNps5TAREgXwZs-IIvjCXUjp8Yk6eA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:62241/api/ToDoTask/Detail",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "62241",
+							"path": [
+								"api",
+								"ToDoTask",
+								"Detail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyIiwidW5pcXVlX25hbWUiOiJ5YWh5YUBvdXRsb29rLmNvbSIsIm5iZiI6MTcxMDI0NTQzMiwiZXhwIjoxNzEwMjQ5MDMyLCJpYXQiOjE3MTAyNDU0MzIsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NjIyNDEiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjYyMjQxIn0.DVrGGFVBaL8mUvNps5TAREgXwZs-IIvjCXUjp8Yk6eA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"toDoTaskName\": \"string\",\r\n  \"departmentId\": 0,\r\n  \"createrUserId\": 0,\r\n  \"assignedUserId\": 0,\r\n  \"status\":0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:62241/api/ToDoTask/Update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "62241",
+							"path": [
+								"api",
+								"ToDoTask",
+								"Update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyIiwidW5pcXVlX25hbWUiOiJ5YWh5YUBvdXRsb29rLmNvbSIsIm5iZiI6MTcxMDI0NTQzMiwiZXhwIjoxNzEwMjQ5MDMyLCJpYXQiOjE3MTAyNDU0MzIsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NjIyNDEiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjYyMjQxIn0.DVrGGFVBaL8mUvNps5TAREgXwZs-IIvjCXUjp8Yk6eA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:62241/api/ToDoTask/Delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "62241",
+							"path": [
+								"api",
+								"ToDoTask",
+								"Delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyIiwidW5pcXVlX25hbWUiOiJ5YWh5YUBvdXRsb29rLmNvbSIsIm5iZiI6MTcxMDI0NTQzMiwiZXhwIjoxNzEwMjQ5MDMyLCJpYXQiOjE3MTAyNDU0MzIsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NjIyNDEiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjYyMjQxIn0.DVrGGFVBaL8mUvNps5TAREgXwZs-IIvjCXUjp8Yk6eA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"toDoTaskName\": \"string\",\r\n  \"departmentId\": 0,\r\n  \"createrUserId\": 0,\r\n  \"assignedUserId\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:62241/api/ToDoTask/Create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "62241",
+							"path": [
+								"api",
+								"ToDoTask",
+								"Create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
